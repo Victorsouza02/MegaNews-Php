@@ -1,0 +1,112 @@
+#fotos_topo {
+    display: block!important;
+}
+
+
+.fontebranca{
+    color:#fff!important;
+}
+
+/* Bottom right text */
+.bottom-right {
+    position: absolute;
+    bottom: 8px;
+    left: 0px;
+    background-color: rgba(0,0,0,0.5);
+}
+/* NAVBAR */
+
+.logo {
+    width: 120px;
+    height: 50px;
+}
+.bg-nav {
+    background-color: #1a1a1a;
+}
+
+nav div div ul li a {
+    color: #b9b9bb;
+}
+
+nav div div ul li a:hover {
+    color: #fff;
+}
+
+.custom-toggler.navbar-toggler {
+    border-color: rgb(252, 252, 252);
+}
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(252, 252, 252, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+
+/* SECÃO SLIDES */
+.carousel-inner{
+    width:100%;
+    max-height: 550px !important;
+}
+
+.carousel-item{
+    width:100%;
+    max-height: 550px !important;
+}
+
+
+.fotocarousel {
+    max-height: 550px!important;
+}  
+.corsecaoslides {
+    background-color: #2859cd;
+}
+
+/* POSTAGENS */
+#postagens {
+    margin-top: 20px;
+}
+.formapostagem {
+    border: 2px solid #87878a;
+    box-shadow: 7px 7px 4px #aaaaaa;
+}
+
+#botoespaginacao a {
+    color: #b9b9bb;
+}
+
+#botoespaginacao a:hover {
+    color: #fff;
+}
+
+/* RODAPE */
+#rodape {
+    margin-top : 20px;
+    min-height: 100px;
+    background-color: #1a1a1a;
+}
+
+#rodape h6 , #rodape ul li {
+    color:#b9b9bb;
+}
+
+.redessociais {
+    text-align: right;
+    color:#fff;
+}
+
+
+/* MEDIA QUERIES */
+
+@media (max-width: 768px) { 
+    .redessociais{
+        text-align: left;
+    }
+
+    #postagens .formapostagem h3 {
+        font-size : 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .visivel {
+        display: none!important;
+    }
+} 

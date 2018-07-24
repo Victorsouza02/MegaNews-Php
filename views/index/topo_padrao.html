@@ -1,0 +1,113 @@
+
+<!-- TOPO -->
+<nav class="navbar navbar-expand-lg bg-nav">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <span>
+                <img class='logo' src="upload/logo/logo.png" alt="Logo">
+            </span>
+        </a>
+        <button class="navbar-toggler custom-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+                aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse ml-3" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Inicio
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorias</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownId">
+                        <a class="dropdown-item" href="#">Action 1</a>
+                        <a class="dropdown-item" href="#">Action 2</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li>
+                        <a class="nav-link" data-toggle="modal" data-target="#cadastroModal" href="#">Cadastre-se
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" data-toggle="modal" data-target="#entrarModal" href="#">Login</a>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<!-- Modal ENTRAR USUARIO -->
+<form id="ajax-register-form" method="post" role="form" autocomplete="off">
+    <div class="modal fade" id="entrarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="">Usuario</label>
+                        <input class="form-control" type="text" name="login">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Senha</label>
+                        <input class="form-control" type="password" name="pws">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <input type="submit" class="btn btn-primary" name="botao" value="Entrar">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- Modal CADASTRO USUARIO -->
+<form id="ajax-register-form" method="post" role="form" autocomplete="off" enctype="multipart/form-data">
+    <div class="modal fade" id="cadastroModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Cadastro de Usuários</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Nome</label>
+                        <input type="text" name="nome" id="username" tabindex="1" class="form-control" placeholder="Nome" value="">
+                    </div>
+                    <div class="form-group">
+                        <label>Login</label>
+                        <input type="text" name="login" id="email" tabindex="1" class="form-control" placeholder="Usuario" value="">
+                    </div>
+                    <div class="form-group">
+                        <label>Senha</label>
+                        <input type="password" name="pws" id="password" tabindex="2" class="form-control" placeholder="Senha">
+                    </div>
+                    <div class="form-group">
+                        <label>Confirmar Senha</label>
+                        <input type="password" name="confpws" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirmar Senha">
+                    </div>
+
+                    <div class="form-group">											
+                        <label class="mr-3">Foto de Perfil</label>
+                            <input type="file" multiple class="span6 fileinput" id="imagem" name="fotousuario">				
+                    </div> <!-- /control-group -->
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <input type="submit" class="btn btn-primary" name="botaoregistrar" value="Registrar">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- FIM TOPO-->
