@@ -22,6 +22,12 @@ class CtrlPostagem {
         return $resposta;
     }
     
+    public function deletar($idPostagem){
+        $dao = new PostagemDao();
+        $resposta = $dao->deletar($idPostagem);
+        return $resposta;
+    }
+    
     public function listarPostagens() {
         $dao = new PostagemDao();
         $result = $dao->listarPostagens();

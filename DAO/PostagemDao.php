@@ -38,7 +38,7 @@ class PostagemDao {
         }
     }
 
-       public function editar(Postagem $post) {
+    public function editar(Postagem $post) {
         try {
             $idPostagem = $post->getIdPostagem();
             $titulo = $post->getTitulo();
@@ -62,7 +62,21 @@ class PostagemDao {
             return false;
         }
     }
-    
+
+    public function deletar($idPostagem) {
+        try {
+            $sql = "DELETE FROM postagem WHERE idPostagem =:idPostagem";
+            $conectar = $this->conexao->getCon();
+            $deletar = $conectar->prepare($sql);
+            $deletar->bindParam(":idPostagem", $idPostagem);
+            $deletar->execute();
+            return true;
+        } catch (PDOException $ex) {
+            echo $ex;
+            return false;
+        }
+    }
+
     public function buscar($dados) {
         $sql = "SELECT * from postagem WHERE titulo LIKE ?";
         $conectar = $this->conexao->getCon();
@@ -71,7 +85,6 @@ class PostagemDao {
         $postagem = $buscarPostagem->fetchAll();
         return $postagem;
     }
-
 
     public function exibirUltimasNoticias($limite) {
         $opcao = "S";
@@ -116,7 +129,7 @@ class PostagemDao {
         $resultado = $exibir->fetchAll();
         return $resultado;
     }
-    
+
     public function dadosPostagemById($id) {
         $sql = "SELECT * FROM postagem WHERE idPostagem=:id";
         $conectar = $this->conexao->getCon();

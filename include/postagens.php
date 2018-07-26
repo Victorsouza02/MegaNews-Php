@@ -1,6 +1,6 @@
 <?php
 $caminho = "upload/postagens/";
-$max_por_pag = 2;
+$max_por_pag = 3;
 
 if (!isset($_GET['pagina'])) {
     $pc = 1;
@@ -72,13 +72,11 @@ $proximo = $pc + 1;
 echo "<div id='botoespaginacao' class='text-center'>";
 
 if ($pc > 1) {
-    echo "<a class='btn bg-nav mt-3 mx-2' href='?pagina=1'> |<< </a>";
-    echo "<a class='btn bg-nav mt-3 mx-2' href='?pagina=$anterior'> << </a>";
+    echo "<a class='btn bg-nav mt-3 mx-2' href='?pagina=$anterior'> < Anterior </a>";
 }
 
 if ($pc < $total_paginas) {
-    echo " <a class='btn bg-nav mt-3 mx-2' href='?pagina=$proximo'> >> </a>";
-    echo " <a class='btn bg-nav mt-3 mx-2' href='?pagina=$total_paginas'> >>| </a>";
+    echo " <a class='btn bg-nav mt-3 mx-2' href='?pagina=$proximo'> Próximo > </a>";
 }
 echo "</div>";
 ?>

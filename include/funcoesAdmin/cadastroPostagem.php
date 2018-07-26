@@ -1,4 +1,5 @@
 <?php
+
 if (isset($_POST['cadastrar'])) {
     include_once '../classes/Postagem.php';
     $post = new Postagem();
@@ -19,6 +20,9 @@ if (isset($_POST['cadastrar'])) {
             </button>
             <strong>Sucesso!<br> CADASTRADO COM SUCESSO </strong>
             </div>';
+        echo "<script>";
+        echo 'setTimeout(function(){ window.location.href = "home.php?acao=ver-postagens"; }, 2000);';
+        echo "</script>";
     } else {
         echo '<div class = "alert alert-danger">
             <button type = "button" class = "close" data-dismiss = "alert">&times;

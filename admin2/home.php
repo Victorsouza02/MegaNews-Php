@@ -1,121 +1,63 @@
 <?php
+session_start();
+include_once "../controller/CtrlUsuario.php";
+include_once "../controller/CtrlGrupo.php";
+include_once "../controller/CtrlPostagem.php";
+
+if (isset($_SESSION['login'])) {
+    include_once '../include/constantes.php';
+    // VERIFICAR SE A SESSION BATE COM O GRUPO ATUAL
+    $ctrl_user = new CtrlUsuario();
+    $idGrupo_atual = $ctrl_user->obterIdGrupoAtual($_SESSION['idUsuario']);
+    if ($idGrupo_atual != IDGRUPO) {
+        include_once '../classes/Sessao.php';
+        $sessao = new Sessao();
+        $sessao->encerrarSessao();
+        echo "<script>window.location.href = 'index.php'</script>";
+        exit;
+    }
+    // ################################## FIM VERIFICAÇÃO
+    // CARREGAR NIVEL DE ACESSO DO USUARIO
+    if (!(NIVELACESSO >= 1)) {
+        echo "<script>window.location.href= 'index.php' </script>";
+        exit;
+    }
+    // ###################### FIM CARREGAR NIVEL
+} else {
+    echo "<script>window.location.href= 'index.php' </script>";
+    exit;
+}
+
+include_once '../include/funcoesAdmin/deslogarAdmin.php';
 include_once 'include/header.html';
 include_once 'include/menus.html';
+
+if (isset($_GET['acao'])) {
+    $acao = $_GET['acao'];
+    if ($acao == "ver-postagens") {
+        include_once 'pages/ver-postagens.php';
+    };
+    if ($acao == "cad-postagem") {
+        include_once 'pages/cad-postagem.php';
+    };
+    if ($acao == "editar-postagem") {
+        include_once 'pages/editar-postagem.php';
+    };
+    if ($acao == "ver-usuarios") {
+        include_once 'pages/ver-usuarios.php';
+    };
+    if ($acao == "cad-usuario") {
+        include_once 'pages/cad-usuario.php';
+    };
+    if ($acao == "editar-usuario") {
+        include_once 'pages/editar-usuario.php';
+    };
+    if ($acao == "editar-postagem") {
+        include_once 'pages/editar-postagem.php';
+    };
+} else {
+    include_once 'pages/inicio.php';
+}
+include_once 'include/footer.html'
 ?>
 
-<!-- STATISTIC-->
-<section class="statistic mt-5">
-    <div class="section__content section__content--p30">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6 col-lg-3">
-                    <div class="statistic__item">
-                        <h2 class="number">10,368</h2>
-                        <span class="desc">Total de Membros</span>
-                        <div class="icon">
-                            <i class="zmdi zmdi-account-o"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="statistic__item">
-                        <h2 class="number">388,688</h2>
-                        <span class="desc">Membros esta semana</span>
-                        <div class="icon">
-                            <i class="zmdi zmdi-account-o"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="statistic__item">
-                        <h2 class="number">1,086</h2>
-                        <span class="desc">Total de Postagens</span>
-                        <div class="icon">
-                            <i class="zmdi zmdi-email"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="statistic__item">
-                        <h2 class="number">$1,060,386</h2>
-                        <span class="desc">Postagens esta semana</span>
-                        <div class="icon">
-                            <i class="zmdi zmdi-email"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- END STATISTIC-->
-
-<section>
-    <div class="container">
-        <div class="table-responsive table--no-card m-b-30">
-            <table class="table table-borderless table-striped table-earning">
-                <thead>
-                <h3 class="text-center my-3">Ultimas postagens</h3>
-                <tr>
-                    <th>#</th>
-                    <th>Titulo</th>
-                    <th>Descrição</th>
-                    <th>Autor</th>
-                    <th>Foto</th>
-                    <th class="text-left">Ação</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Nome Titulo</td>
-                        <td>Descrição</td>
-                        <td>Nome Autor</td>
-                        <td><img src="http://localhost/upload/postagens/8669664eebb5ff87d2ae5863e9661a01.jpg" style="min-width:100px; min-height: 70px; max-width:130px; min-height: 100px;"/></td>
-                        <td class="text-left">
-                            <a href="#" class="px-1"><i class="btn-icon-only fa fa-edit"></i></a>
-                            <a href="#" class="px-1"><i class="btn-icon-only fa fa-eraser"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Nome Titulo</td>
-                        <td>Descrição</td>
-                        <td>Nome Autor</td>
-                        <td><img src="http://localhost/upload/postagens/8669664eebb5ff87d2ae5863e9661a01.jpg" style="min-width:100px; min-height: 70px; max-width:130px; min-height: 100px;"/></td>
-                        <td class="text-left">
-                            <a href="#" class="px-1"><i class="btn-icon-only fa fa-edit"></i></a>
-                            <a href="#" class="px-1"><i class="btn-icon-only fa fa-eraser"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Nome Titulo</td>
-                        <td>Descrição</td>
-                        <td>Nome Autor</td>
-                        <td><img src="http://localhost/upload/postagens/8669664eebb5ff87d2ae5863e9661a01.jpg" style="min-width:100px; min-height: 70px; max-width:130px; min-height: 100px;"/></td>
-                        <td class="text-left">
-                            <a href="#" class="px-1"><i class="btn-icon-only fa fa-edit"></i></a>
-                            <a href="#" class="px-1"><i class="btn-icon-only fa fa-eraser"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Nome Titulo</td>
-                        <td>Descrição</td>
-                        <td>Nome Autor</td>
-                        <td><img src="http://localhost/upload/postagens/8669664eebb5ff87d2ae5863e9661a01.jpg" style="min-width:100px; min-height: 70px; max-width:130px; min-height: 100px;"/></td>
-                        <td class="text-left">
-                            <a href="#" class="px-1"><i class="btn-icon-only fa fa-edit"></i></a>
-                            <a href="#" class="px-1"><i class="btn-icon-only fa fa-eraser"></i></a>
-                        </td>
-                    </tr>
-
-
-                </tbody>
-            </table>
-        </div>
-    </div>
-</section>
-
-<?php include_once 'include/footer.html';?>
