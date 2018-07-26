@@ -30,7 +30,7 @@ if (isset($_SESSION['login'])) {
 
 include_once '../include/funcoesAdmin/deslogarAdmin.php';
 include_once 'include/header.html';
-include_once 'include/menus.html';
+include_once 'include/menus.php';
 
 if (isset($_GET['acao'])) {
     $acao = $_GET['acao'];

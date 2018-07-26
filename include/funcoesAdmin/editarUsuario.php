@@ -5,10 +5,11 @@ $dadosedit = $ctrledit->dadosUsuarioById($_GET['id']);
 $loginedit = $dadosedit['login'];
 $senhaedit = $dadosedit['senha'];
 $nomeedit = $dadosedit['nome'];
+$grupoedit = $dadosedit['idGrupo'];
 
 
 $nivel_alvo = $ctrledit->obterNiveldeAcesso($_GET['id']);
-if (NIVELACESSO > $nivel_alvo) { // SE O NIVEL DO USUARIO FOR MAIOR QUE O NIVEL DO ALVO DA AÇÃO
+if (NIVELACESSO > $nivel_alvo || $_GET['id'] == $_SESSION['idUsuario']) { // SE O NIVEL DO USUARIO FOR MAIOR QUE O NIVEL DO ALVO DA AÇÃO OU O USUARIO FOR IGUAL AO ALVO
     if (isset($_POST['botaoeditar'])) {
         include_once '../classes/Usuario.php';
         $usuario_edit = new Usuario();
@@ -16,7 +17,11 @@ if (NIVELACESSO > $nivel_alvo) { // SE O NIVEL DO USUARIO FOR MAIOR QUE O NIVEL 
         $usuario_edit->setNome($_POST['edit_nome']);
         $usuario_edit->setLogin($_POST['edit_login']);
         $usuario_edit->setSenha($_POST['edit_pws']);
-        $usuario_edit->setIdGrupo($_POST['editgrupo']);
+        if (!($_GET['id'] == $_SESSION['idUsuario'])) {
+            $usuario_edit->setIdGrupo($_POST['editgrupo']);
+        } else {
+            $usuario_edit->setIdGrupo($grupoedit);
+        }
         $dados_user = new CtrlUsuario();
         $resposta = $usuario_edit->verificarEdicao($dadosedit);
 

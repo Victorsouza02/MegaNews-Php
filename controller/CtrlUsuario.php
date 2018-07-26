@@ -34,6 +34,12 @@ class CtrlUsuario {
         $resposta = $user_dao->deletar($id);
         return $resposta;
     }
+    
+    public function numUsuarios(){
+        $dao = new UsuarioDao();
+        $num = $dao->numUsuarios();
+        return $num;
+    }
 
     public function listarUsuarios() {
         $lista = new UsuarioDao();

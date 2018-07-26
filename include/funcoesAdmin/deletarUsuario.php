@@ -13,6 +13,9 @@ if (NIVELACESSO >= 2) {
             </button>
             <strong>ERRO!</strong> Quer deletar a si mesmo? AZIDEIA
             </div>';
+            echo "<script>";
+            echo 'setTimeout(function(){ window.location.href = "home.php?acao=ver-usuarios"; }, 4000);';
+            echo "</script>";
         } else {
             // CONTROLE DE EXCLUSÃO
             if (NIVELACESSO <= $nivel_alvo) {
@@ -29,12 +32,18 @@ if (NIVELACESSO >= 2) {
             </button>
             <strong>Sucesso!</strong> Usuário deletado com sucesso
             </div>';
+                    echo "<script>";
+                    echo 'setTimeout(function(){ window.location.href = "home.php?acao=ver-usuarios"; }, 4000);';
+                    echo "</script>";
                 } else {
                     echo '<div class = "alert alert-danger">
             <button type = "button" class = "close" data-dismiss = "alert">&times;
             </button>
             <strong>ERRO!</strong> Falha ao deletar usuário
             </div>';
+                    echo "<script>";
+                    echo 'setTimeout(function(){ window.location.href = "home.php?acao=ver-usuarios"; }, 4000);';
+                    echo "</script>";
                 }
             }
         }

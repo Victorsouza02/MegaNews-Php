@@ -116,7 +116,16 @@ class UsuarioDao {
             return false;
         }
     }
-
+    
+    public function numUsuarios(){
+        $sql = "SELECT * from usuario";
+        $conectar = $this->conexao->getCon();
+        $listarUsuarios = $conectar->prepare($sql);
+        $listarUsuarios->execute();
+        $usuarios = $listarUsuarios->rowCount();
+        return $usuarios;
+    }
+    
     public function listarUsuarios() {
         $sql = "SELECT * from usuario";
         $conectar = $this->conexao->getCon();

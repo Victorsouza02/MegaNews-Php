@@ -106,6 +106,15 @@ class PostagemDao {
         $postagens = $listarPostagens->fetchAll();
         return $postagens;
     }
+    
+    public function numPostagens(){
+        $sql = "SELECT * from postagem";
+        $conectar = $this->conexao->getCon();
+        $listarPostagens = $conectar->prepare($sql);
+        $listarPostagens->execute();
+        $numpostagens = $listarPostagens->rowCount();       
+        return $numpostagens;
+    }
 
     public function listarUltimasPostagens($limite) {
         $sql = "SELECT * FROM postagem ORDER BY idPostagem DESC  LIMIT :limite";
