@@ -24,7 +24,7 @@
                         <label for="text-input" class=" form-control-label">Imagem Atual</label>
                     </div>
                     <div class="col-12 col-md-9">
-                        <img src="<?php echo $caminho_img.$foto_atual ;?>" style="width:600px; height: 350px;"/>
+                        <img src="<?php echo $caminho_img.$foto_atual ;?>" style="width:600px; max-width: 100%;  height:auto"/>
                     </div>
                 </div>
 
