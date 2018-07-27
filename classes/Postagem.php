@@ -49,7 +49,7 @@ class Postagem {
         } else {
             $largura = 1280;
             $altura = 720;
-            $tamanho = 200000;
+            $tamanho = 500000;
 
             if (!preg_match("/^image\/(pjpeg|jpeg|png|gif|bmp)$/", $foto["type"])) { // Verifica se é uma extensão de imagem --válida.
                 $erros_array[0] = "Isso não é uma imagem<br>";
@@ -101,7 +101,7 @@ class Postagem {
         if (!empty($foto["name"])) { // Se houver foto selecionada
             $largura = 1280;
             $altura = 720;
-            $tamanho = 200000;
+            $tamanho = 500000;
 
             if (!preg_match("/^image\/(pjpeg|jpeg|png|gif|bmp)$/", $foto["type"])) { // Verifica se é uma extensão de imagem --válida.
                 $erros[0] = "Isso não é uma imagem<br>";

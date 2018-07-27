@@ -30,7 +30,7 @@ $caminho = "upload/postagens/";
             <div class="mask"></div>
         </div>
         <div class="carousel-caption textocarousel">
-            <h3 class="h3-responsive">' . $slides_conteudo[$key]['titulo'] . '</h3>
+            <h3 class="h3-responsive tituloslide">' . $slides_conteudo[$key]['titulo'] . '</h3>
         </div>
     </div>';
         } else {
@@ -41,7 +41,7 @@ $caminho = "upload/postagens/";
             <div class="mask"></div>
         </div>
         <div class="carousel-caption">
-            <h3 class="h3-responsive">' . $slides_conteudo[$key]['titulo'] . '</h3>
+            <h3 class="h3-responsive tituloslide">' . $slides_conteudo[$key]['titulo'] . '</h3>
         </div>
     </div>';
         }

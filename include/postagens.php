@@ -1,3 +1,5 @@
+ 
+
 <?php
 $caminho = "upload/postagens/";
 $max_por_pag = 3;
@@ -43,7 +45,7 @@ foreach ($posts as $key => $value) {
             <div class="row" id="descricao">
                 <div class="col-md-12 text-center">
                     <p>' . $descricao . '</p>
-                    <a href="index.php?acao=postagem&idpost='.$idpost.'">Leia a notícia completa</a>
+                    <a href="index.php?acao=postagem&idpost='.$idpost.'#postagem">Leia a notícia completa</a>
                 </div>
             </div>
 

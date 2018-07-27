@@ -5,22 +5,23 @@ $ctrl_user = new CtrlUsuario();
 $dados = $ctrl->dadosPostagemById($_GET['idpost']);
 $dadosautor = $ctrl_user->dadosUsuarioById($dados['idUsuario']);
 ?>
-
-<div class="row">
-    <div class="col-12">
-        <h1 class="text-center"> <?php echo $dados['titulo']; ?> </h1>
+<section id="postagem">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center titulo"> <?php echo $dados['titulo']; ?> </h1>
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-12">
-        <?php echo $dados['texto']; ?>
+    <div class="row">
+        <div class="col-12">
+            <?php echo $dados['texto']; ?>
+        </div>
     </div>
-</div>
-<div class="row my-5">
-    <div class="col-12">
-        <h6 class="text-center">Autor da Postagem : <?php echo $dadosautor['login']?></h6>
+    <div class="row my-5">
+        <div class="col-12">
+            <h5 class="text-center autor d-block">Autor da Postagem : <?php echo $dadosautor['login'] ?></h5>
+        </div>
     </div>
-</div>
+</section>
 
 
 

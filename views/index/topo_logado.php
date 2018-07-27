@@ -6,7 +6,7 @@
 <!-- TOPO -->
  <nav class="navbar navbar-expand-lg  bg-nav">
         <div class="container">
-            <a class="navbar-brand" href="#"><span><img  class='logo' src="upload/logo/logo.png" alt="Logo"></span></a>
+            <a class="navbar-brand" href="index.php"><span><img  class='logo' src="upload/logo/logo.png" alt="Logo"></span></a>
             <button class="navbar-toggler custom-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
                 aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -14,7 +14,7 @@
             <div class="collapse navbar-collapse ml-3" id="collapsibleNavId">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Inicio
+                        <a class="nav-link scrollSuave" href="index.php">Inicio
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
@@ -38,8 +38,8 @@
                         <?php
                             
                         if (NIVELACESSO >= 1) {
-                             echo "<a class='dropdown-item' href='admin'>Acessar Painel</a>";
-                             echo "<a class='dropdown-item' href='admin/home.php?acao=cad-postagem'>Adicionar Postagem</a>";
+                             echo "<a class='dropdown-item' href='admin2'>Acessar Painel</a>";
+                             echo "<a class='dropdown-item' href='admin2/home.php?acao=cad-postagem'>Adicionar Postagem</a>";
                         }
                     ?>
                             <a class="dropdown-item" href="?sair">Sair</a>

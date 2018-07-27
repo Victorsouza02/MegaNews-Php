@@ -51,6 +51,11 @@ nav div div ul li a:hover {
     max-height: 550px !important;
 }
 
+.tituloslide {
+    background-color: rgba(0,0,0,0.7);
+    padding: 10px;
+}
+
 
 .fotocarousel {
     max-height: 550px!important;
@@ -75,6 +80,20 @@ nav div div ul li a:hover {
 #botoespaginacao a:hover {
     color: #fff;
 }
+
+.titulo , .autor {
+    background-color: #2859cd!important;
+    color:#fff;
+    border-radius: 10px;
+}
+
+#postagem img {
+    max-width: 100%!important;
+    height:auto!important;
+}
+
+
+
 
 /* RODAPE */
 #rodape {
