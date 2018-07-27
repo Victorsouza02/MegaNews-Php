@@ -5,6 +5,7 @@ if (NIVELACESSO >= 2) {
     if (isset($_GET['delete'])) {
         $id_selecionado = $_GET['delete'];
         $ctrl_usuario = new CtrlUsuario();
+        $dados = $ctrl_usuario->dadosUsuarioById($id_selecionado);
         $nivel_alvo = $ctrl_usuario->obterNiveldeAcesso($id_selecionado);
 
         if ($id_selecionado == $_SESSION['idUsuario']) {
@@ -26,6 +27,7 @@ if (NIVELACESSO >= 2) {
             } else {
                 $usuario_ctrl_del = new CtrlUsuario();
                 $resposta_del = $usuario_ctrl_del->deletar($id_selecionado);
+                unlink("../upload/foto_perfil/".$dados['foto']);
                 if ($resposta_del) {
                     echo '<div class = "alert alert-success">
             <button type = "button" class = "close" data-dismiss = "alert">&times;

@@ -5,8 +5,9 @@ if (NIVELACESSO >= 1) {
     if (isset($_GET['delete'])) {
         $id_selecionado = $_GET['delete'];
         $ctrlpost = new CtrlPostagem();
+        $dados = $ctrlpost->dadosPostagemById($id_selecionado);
         $ctrlpost->deletar($id_selecionado);
-
+        unlink("../upload/postagens/".$dados['foto']);
         echo '<div class = "alert alert-success">
             <button type = "button" class = "close" data-dismiss = "alert">&times;
             </button>
