@@ -19,14 +19,14 @@ $caminho = "upload/postagens/";
 </ol>
 <!--/.Indicators-->
 <!--Slides-->
-<div class="carousel-inner" role="listbox">
+<div class="carousel-inner" style="width: 100%;max-height: 550px;" role="listbox">
 
     <?php
     foreach ($slides_conteudo as $key => $value) {
         if ($key == 0) {
             echo '<div class="carousel-item active">
         <div class="view hm-black-light">
-            <img class="d-block w-100" src="' . $caminho.$slides_conteudo[$key]['foto'] . '" alt="First slide">
+            <img class="d-block w-100 fotocarousel" src="' . $caminho.$slides_conteudo[$key]['foto'] . '" alt="First slide">
             <div class="mask"></div>
         </div>
         <div class="carousel-caption textocarousel">
@@ -37,7 +37,7 @@ $caminho = "upload/postagens/";
             echo '<div class="carousel-item">
         <!--Mask color-->
         <div class="view hm-black-strong">
-            <img class="d-block w-100" src="' . $caminho.$slides_conteudo[$key]['foto'] . '" alt="Second slide">
+            <img class="d-block w-100 fotocarousel" src="' . $caminho.$slides_conteudo[$key]['foto'] . '" alt="Second slide">
             <div class="mask"></div>
         </div>
         <div class="carousel-caption">

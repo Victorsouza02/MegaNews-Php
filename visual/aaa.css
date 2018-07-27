@@ -43,12 +43,12 @@ nav div div ul li a:hover {
 /* SECÃO SLIDES */
 .carousel-inner{
     width:100%;
-    max-height: 550px !important;
+    max-height: 550px!important;
 }
 
-.carousel-item{
+.carousel-item , .teste{
     width:100%;
-    max-height: 550px !important;
+    max-height: 550px!important;
 }
 
 .tituloslide {
@@ -58,7 +58,7 @@ nav div div ul li a:hover {
 
 
 .fotocarousel {
-    max-height: 550px!important;
+    max-height: 519px!important;
 }  
 .corsecaoslides {
     background-color: #2859cd;

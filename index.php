@@ -13,7 +13,7 @@ include_once 'include/verificarSessaoIndex.php';
         <div class="row">
             <div class="offset-md-1 col-md-6">
                 <!-- #################### INICIO CAROUSEL ################## -->
-                <div id="carousel-example-2" class="carousel slide carousel-fade mt-3" data-ride="carousel">
+                <div id="carousel-example-2" class="carousel slide carousel-fade mt-3" style="width: 100%;max-height: 550px;"data-ride="carousel">
                     <?php include_once 'include/slidesconteudo.php' ?>
                     <!--/.Slides-->
                     <!--Controls-->
