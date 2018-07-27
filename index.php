@@ -34,12 +34,12 @@ include_once 'include/verificarSessaoIndex.php';
                 <!-- #################### INICIO CAROUSEL ################## -->
                 <div class="row">
                     <div class="col-md-12 py-1 px-0" style="position: relative;">
-                        <img src="http://localhost/upload/postagens/8669664eebb5ff87d2ae5863e9661a01.jpg" class="w-100">
-                        <div class="bottom-right fontebranca w-100"><h5 class="text-center">Novo jogo do Homem Aranha é anunciado</h5></div>
+                        <img src="https://i.ytimg.com/vi/jG5grBqG7M4/maxresdefault.jpg" class="w-100">
+                        <div class="bottom-right fontebranca w-100"><h5 class="text-center">Novo KOF</h5></div>
                     </div>      
                     <div class="col-md-12 py-1 px-0" style="position: relative;">
-                        <img src="http://localhost/upload/postagens/8669664eebb5ff87d2ae5863e9661a01.jpg" class="w-100">
-                        <div class="bottom-right fontebranca w-100"><h5 class="text-center">Novo jogo do Homem Aranha é anunciado</h5></div>
+                        <img src="https://i.ytimg.com/vi/jG5grBqG7M4/maxresdefault.jpg" class="w-100">
+                        <div class="bottom-right fontebranca w-100"><h5 class="text-center">Novo KOF</h5></div>
                     </div>      
                     
                 </div>
