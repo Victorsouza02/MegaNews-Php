@@ -56,8 +56,14 @@ include_once 'include/verificarSessaoIndex.php';
     <div class="container" style="max-width: 1640px!important">
         <div class="row">
             <div class="col-md-9 ">
-                <h1 class="text-center"> Notícias</h1>
-                <?php include_once 'include/postagens.php' ?>
+                <?php if(isset($_GET['acao']) && $_GET['acao'] == "postagem" && isset($_GET['idpost'])){
+                    include_once 'views/index/postagem.php';
+                }else {
+                    echo '<h1 class="text-center"> Notícias</h1>';
+                    include_once 'include/postagens.php';                   
+                }
+                ?>
+                
             </div>
 
             <div class="col-md-3 text-center d-none d-md-block">

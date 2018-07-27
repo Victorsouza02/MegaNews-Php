@@ -65,7 +65,8 @@
                         <label for="textarea-input" class=" form-control-label">Conteúdo Principal</label>
                     </div>
                     <div class="col-12 col-md-9">
-                        <textarea name="texto" id="textarea-input" rows="9" placeholder="<?php echo $texto_atual ?>" class="form-control"></textarea>
+                        <textarea name="texto" id="textarea-input" rows="9" class="form-control">
+                        <?php echo $texto_atual?></textarea>
                     </div>
                 </div>
             </div>

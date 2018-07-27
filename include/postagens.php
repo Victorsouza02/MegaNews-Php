@@ -21,6 +21,7 @@ foreach ($total_posts as $key) {
 }
 
 foreach ($posts as $key => $value) {
+    $idpost = $posts[$key]['idPostagem'];
     $foto = $caminho . $posts[$key]['foto'];
     $titulo = $posts[$key]['titulo'];
     $descricao = $posts[$key]['descricao'];
@@ -42,7 +43,7 @@ foreach ($posts as $key => $value) {
             <div class="row" id="descricao">
                 <div class="col-md-12 text-center">
                     <p>' . $descricao . '</p>
-                    <a href="#">Leia a notícia completa</a>
+                    <a href="index.php?acao=postagem&idpost='.$idpost.'">Leia a notícia completa</a>
                 </div>
             </div>
 
