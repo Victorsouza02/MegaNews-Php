@@ -27,7 +27,9 @@ if (NIVELACESSO >= 2) {
             } else {
                 $usuario_ctrl_del = new CtrlUsuario();
                 $resposta_del = $usuario_ctrl_del->deletar($id_selecionado);
+                if($dados['foto'] != ""){
                 unlink("../upload/foto_perfil/".$dados['foto']);
+                }
                 if ($resposta_del) {
                     echo '<div class = "alert alert-success">
             <button type = "button" class = "close" data-dismiss = "alert">&times;
