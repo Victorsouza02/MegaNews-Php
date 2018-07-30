@@ -1,3 +1,8 @@
+@font-face {
+     font-family: bitfont;
+     src: local('bitfont.ttf'), url('fonts/bitfont.ttf');
+}
+
 #fotos_topo {
     display: block!important;
 }
@@ -82,8 +87,10 @@ nav div div ul li a:hover {
 }
 
 .titulo , .autor {
+    font-family: bitfont;
     background-color: #2859cd!important;
     color:#fff;
+    border: 2px solid #000;
     border-radius: 10px;
 }
 
