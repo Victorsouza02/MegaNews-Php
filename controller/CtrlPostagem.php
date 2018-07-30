@@ -33,6 +33,11 @@ class CtrlPostagem {
         return $num;
     }
     
+    public function addContagem($contagem_atual){
+        $dao = new PostagemDao();
+        $dao->addContagem($contagem_atual);
+    }
+    
     public function listarPostagens() {
         $dao = new PostagemDao();
         $result = $dao->listarPostagens();

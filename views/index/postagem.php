@@ -4,6 +4,7 @@ $ctrl = new CtrlPostagem();
 $ctrl_user = new CtrlUsuario();
 $dados = $ctrl->dadosPostagemById($_GET['idpost']);
 $dadosautor = $ctrl_user->dadosUsuarioById($dados['idUsuario']);
+$ctrl->addContagem($dados['contagem']);
 ?>
 <section id="postagem">
     <div class="row">

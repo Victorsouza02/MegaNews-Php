@@ -97,6 +97,15 @@ class PostagemDao {
         $resultado = $exibir->fetchAll();
         return $resultado;
     }
+    
+    public function addContagem($contagem_atual){
+        $contagem = $contagem_atual + 1;
+        $sql = "UPDATE postagem SET contagem = :contagem";
+        $conectar = $this->conexao->getCon();
+        $exibir = $conectar->prepare($sql);
+        $exibir->bindParam(":contagem", $contagem);
+        $exibir->execute();  
+    }
 
     public function listarPostagens() {
         $sql = "SELECT * from postagem";
