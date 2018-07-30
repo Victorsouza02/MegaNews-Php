@@ -22,21 +22,21 @@ if (isset($_POST['botao'])) {
             $sessao->setUsuario($user_login->getLogin());
             $sessao->setIdUsuario($idUser);
             $sessao->abrirSessao();
-
             include_once '../include/constantes.php';
-
-            echo '<div class = "alert alert-success">
-            <button type = "button" class = "close" data-dismiss = "alert">&times;
-            </button>
-            <strong>Sucesso!</strong> Login feito com sucesso
-            </div>';
-            echo "<script>window.location.href= 'home.php'</script>";
-        } else if (!(NIVELACESSO >= 1)) {
-            echo '<div class = "alert alert-danger">
+            if (!(NIVELACESSO >= 1)) {
+                echo '<div class = "alert alert-danger">
             <button type = "button" class = "close" data-dismiss = "alert">&times;
             </button>
             <strong>ERRO!</strong> Usuário sem permissão;
             </div>';
+            } else {
+                echo '<div class = "alert alert-success">
+            <button type = "button" class = "close" data-dismiss = "alert">&times;
+            </button>
+            <strong>Sucesso!</strong> Login feito com sucesso
+            </div>';
+                echo "<script>window.location.href= 'home.php'</script>";
+            }
         } else {
             echo '<div class = "alert alert-danger">
             <button type = "button" class = "close" data-dismiss = "alert">&times;
