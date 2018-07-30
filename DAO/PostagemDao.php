@@ -97,14 +97,15 @@ class PostagemDao {
         $resultado = $exibir->fetchAll();
         return $resultado;
     }
-    
-    public function addContagem($contagem_atual){
+
+    public function addContagem($contagem_atual,$id) {
         $contagem = $contagem_atual + 1;
-        $sql = "UPDATE postagem SET contagem = :contagem";
+        $sql = "UPDATE postagem SET contagem = :contagem WHERE idPostagem = :idPostagem";
         $conectar = $this->conexao->getCon();
         $exibir = $conectar->prepare($sql);
         $exibir->bindParam(":contagem", $contagem);
-        $exibir->execute();  
+        $exibir->bindParam(":idPostagem", $id);
+        $exibir->execute();
     }
 
     public function listarPostagens() {
@@ -115,18 +116,28 @@ class PostagemDao {
         $postagens = $listarPostagens->fetchAll();
         return $postagens;
     }
-    
-    public function numPostagens(){
+
+    public function numPostagens() {
         $sql = "SELECT * from postagem";
         $conectar = $this->conexao->getCon();
         $listarPostagens = $conectar->prepare($sql);
         $listarPostagens->execute();
-        $numpostagens = $listarPostagens->rowCount();       
+        $numpostagens = $listarPostagens->rowCount();
         return $numpostagens;
     }
 
     public function listarUltimasPostagens($limite) {
         $sql = "SELECT * FROM postagem ORDER BY idPostagem DESC  LIMIT :limite";
+        $conectar = $this->conexao->getCon();
+        $exibir = $conectar->prepare($sql);
+        $exibir->bindParam(":limite", $limite, PDO::PARAM_INT);
+        $exibir->execute();
+        $resultado = $exibir->fetchAll();
+        return $resultado;
+    }
+
+    public function listarMaisAcessadas($limite) {
+        $sql = "SELECT * FROM postagem ORDER BY contagem DESC  LIMIT :limite";
         $conectar = $this->conexao->getCon();
         $exibir = $conectar->prepare($sql);
         $exibir->bindParam(":limite", $limite, PDO::PARAM_INT);

@@ -33,9 +33,9 @@ class CtrlPostagem {
         return $num;
     }
     
-    public function addContagem($contagem_atual){
+    public function addContagem($contagem_atual,$id){
         $dao = new PostagemDao();
-        $dao->addContagem($contagem_atual);
+        $dao->addContagem($contagem_atual,$id);
     }
     
     public function listarPostagens() {
@@ -43,6 +43,7 @@ class CtrlPostagem {
         $result = $dao->listarPostagens();
         return $result;
     }
+    
     
     public function paginacaoPostagem($inicio,$max_por_pag) {
         $dao = new PostagemDao();
@@ -66,6 +67,12 @@ class CtrlPostagem {
         $dao = new PostagemDao();
         $ultimasnoticias = $dao->exibirUltimasNoticias($limite);
         return $ultimasnoticias;
+    }
+    
+    public function exibirMaisAcessadas($limite){
+        $dao = new PostagemDao();
+        $maisacessadas = $dao->listarMaisAcessadas($limite);
+        return $maisacessadas;
     }
     
     public function listarUltimasPostagens($limite) {

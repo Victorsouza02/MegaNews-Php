@@ -33,15 +33,19 @@ include_once 'include/verificarSessaoIndex.php';
             <div class="col-md-3 col-md-offset-right-2 mt-3 d-none d-md-block" id="maisacessadas">
                 <!-- #################### INICIO CAROUSEL ################## -->
                 <div class="row">
-                    <div class="col-md-12 py-1 px-0" style="position: relative;">
-                        <img src="https://i.ytimg.com/vi/jG5grBqG7M4/maxresdefault.jpg" class="w-100">
-                        <div class="bottom-right fontebranca w-100"><h5 class="text-center">Novo KOF</h5></div>
-                    </div>      
-                    <div class="col-md-12 py-1 px-0" style="position: relative;">
-                        <img src="https://i.ytimg.com/vi/jG5grBqG7M4/maxresdefault.jpg" class="w-100">
-                        <div class="bottom-right fontebranca w-100"><h5 class="text-center">Novo KOF</h5></div>
-                    </div>      
-                    
+                    <?php
+                    $caminho_foto = "upload/postagens/";
+                    $ctrl_postagem = new CtrlPostagem();
+                    $maisacessadas = $ctrl_postagem->exibirMaisAcessadas(2);
+
+                    foreach ($maisacessadas as $key => $value) {
+                        echo '<div class="col-md-12 py-1 px-0" style="position: relative;">
+                        <img src="'.$caminho_foto.$maisacessadas[$key]['foto'].'" class="w-100">
+                        <div class="bottom-right fontebranca w-100"><h5 class="text-center">'.$maisacessadas[$key]['titulo'].'</h5></div>
+                    </div>';
+                    }
+                    ?>
+  
                 </div>
                 <!-- FIM COLUNA ULTIMAS NOTICIAS -->
             </div>
@@ -56,19 +60,20 @@ include_once 'include/verificarSessaoIndex.php';
     <div class="container" style="max-width: 1640px!important">
         <div class="row">
             <div class="col-md-9 ">
-                <?php if(isset($_GET['acao']) && $_GET['acao'] == "postagem" && isset($_GET['idpost'])){
+                <?php
+                if (isset($_GET['acao']) && $_GET['acao'] == "postagem" && isset($_GET['idpost'])) {
                     include_once 'views/index/postagem.php';
-                }else {
+                } else {
                     echo '<h1 class="text-center"> Notícias</h1>';
-                    include_once 'include/postagens.php';                   
+                    include_once 'include/postagens.php';
                 }
                 ?>
-                
+
             </div>
 
             <div class="col-md-3 text-center d-none d-md-block">
                 <h3 class="text-center"> Publicidade </h3>
-              <iframe src="//cdn.bannersnack.com/banners/bcf0rf3ug/embed/index.html?userId=37677107&t=1532208734" width="200" height="720" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true"></iframe>
+                <iframe src="//cdn.bannersnack.com/banners/bcf0rf3ug/embed/index.html?userId=37677107&t=1532208734" width="200" height="720" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true"></iframe>
             </div>
         </div>
     </div>
