@@ -3,6 +3,7 @@ session_start();
 include_once "../controller/CtrlUsuario.php";
 include_once "../controller/CtrlGrupo.php";
 include_once "../controller/CtrlPostagem.php";
+include_once "../controller/CtrlCategoria.php";
 
 if (isset($_SESSION['login'])) {
     include_once '../include/constantes.php';

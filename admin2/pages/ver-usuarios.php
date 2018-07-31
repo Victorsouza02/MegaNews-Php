@@ -7,6 +7,7 @@ if (!(NIVELACESSO >= 2)) {
 $caminho_foto = "../upload/foto_perfil/";
 ?>
 
+
 <section style="margin-top:5%;">
     <div class="container">
         <div class="table-responsive table--no-card m-b-30">
@@ -136,7 +137,7 @@ $caminho_foto = "../upload/foto_perfil/";
 
                                 if (NIVELACESSO > $nivel_alvo_user || $_SESSION['idUsuario'] == $idUsuario) {
                                     echo "<td class='td-actions'> <a href='home.php?acao=editar-usuario&id=$idUsuario' class='mx-1 btn btn-success btn-sm'><i class='btn-icon-only fa fa-edit'> </i></a>";
-                                    echo "<a href='home.php?acao=ver-usuarios&delete=$idUsuario' class='mx-1 btn btn-danger btn-sm'><i class='btn-icon-only fa fa-eraser'> </i></a></td>";
+                                    echo "<a id='btn-deluser' href='home.php?acao=ver-usuarios&delete=$idUsuario' class='mx-1 btn btn-danger btn-sm'><i class='btn-icon-only fa fa-eraser'> </i></a></td>";
                                 } else {
                                     echo "<td>Nenhuma</td>";
                                 }
