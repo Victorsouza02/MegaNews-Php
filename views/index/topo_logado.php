@@ -44,8 +44,8 @@
                         <?php
                             
                         if (NIVELACESSO >= 1) {
-                             echo "<a class='dropdown-item' href='admin2'>Acessar Painel</a>";
-                             echo "<a class='dropdown-item' href='admin2/home.php?acao=cad-postagem'>Adicionar Postagem</a>";
+                             echo "<a class='dropdown-item' href='admin'>Acessar Painel</a>";
+                             echo "<a class='dropdown-item' href='admin/home.php?acao=cad-postagem'>Adicionar Postagem</a>";
                         }
                     ?>
                             <a class="dropdown-item" href="?sair">Sair</a>

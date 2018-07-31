@@ -1,45 +1,84 @@
-<?php
-// VERIFICAR NIVEL DE ACESSO
-if (!(NIVELACESSO >= 2)) {
-    echo "<script>window.location.href= 'home.php' </script>";
-    exit;
-}
-include_once '../include/funcoesAdmin/cadastroUsuario_admin.php';
-?>
-<div>
-    <form method="POST" enctype="multipart/form-data" >
-        <div class="form-group">
-            <label>Nome</label>
-            <input type="text" name="nome" id="username" tabindex="1" class="form-control" placeholder="Nome" value="">
-        </div>
-        <label>Login</label>
-        <input type="type" name="login" id="email" tabindex="1" placeholder="Usuario" value="">
-        <div class="form-group">
-            <label>Senha</label>
-            <input type="password" name="pws" id="password" tabindex="2" class="form-control" placeholder="Senha">
-        </div>
-        <div class="form-group">
-            <label>Confirmar Senha</label>
-            <input type="password" name="confpws" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirmar Senha">
-        </div>
-
-        <div class="form-group">											
-            <label class="mr-3">Foto do Perfil</label>
-            <input type="file" multiple class="span6 fileinput" id="imagem" name="fotousuario">				
-        </div> <!-- /control-group -->
-        
-        <div class="form-group">
-            <label>Selecionar Grupo</label>
-            <select name="gruposelect">
+<div class="col-md-8 offset-md-2" style="margin-top: 5%;">
+    <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+        <div class="card">
+            <div class="card-header">
+                <strong>Cadastrar novo usuário</strong>
                 <?php
-                include_once '../controller/CtrlGrupo.php';
-                $ctrlgrupo = new CtrlGrupo();
-                $ctrlgrupo->listarGruposByNivel(NIVELACESSO);
+                include_once '../include/funcoesAdmin/cadastroUsuario_admin.php';
                 ?>
-            </select>
-        </div>
-        <div class="form-group mt-3">
-            <input type="submit" name='botaocad' class='btn btn-success' value='Cadastrar'>
+            </div>
+            <div class="card-body card-block">       
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">Nome</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input type="text" id="text-input" name="nome" placeholder="Nome" class="form-control">
+                        <small class="form-text text-muted">Digite aqui o nome do usuário</small>
+                    </div>
+                </div>
+                
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">Login</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input type="text" id="text-input" name="login" placeholder="Login" class="form-control">
+                        <small class="form-text text-muted">Digite aqui o login do usuário</small>
+                    </div>
+                </div>
+                
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">Senha</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input type="password" id="text-input" name="pws" placeholder="******" class="form-control">
+                        <small class="form-text text-muted">Digite aqui a senha do usuário</small>
+                    </div>
+                </div>
+                
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">Confirmar Senha</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input type="password" id="text-input" name="confpws" placeholder="******" class="form-control">
+                        <small class="form-text text-muted">Digite aqui a confirmação de  senha do usuário</small>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="file-input" class=" form-control-label">Foto de Perfil</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input type="file" id="file-input" name="fotousuario" class="form-control-file">
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="selectSm" class=" form-control-label">Grupo</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <select name="gruposelect" id="SelectLm" class="form-control-sm form-control">
+                            <?php
+                            include_once '../controller/CtrlGrupo.php';
+                            $ctrlgrupo = new CtrlGrupo();
+                            $ctrlgrupo->listarGruposByNivel(NIVELACESSO);
+                            ?>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-footer">
+                <input type="submit" name="botaocad" class="btn btn-primary btn-sm" value="Confirmar"/>
+                <input type="reset" name="cancelar" class="btn btn-danger btn-sm" value="Cancelar"/>
+            </div>
         </div>
     </form>
 </div>
+
+

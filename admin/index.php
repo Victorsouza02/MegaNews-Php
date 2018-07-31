@@ -12,122 +12,104 @@ if (isset($_SESSION['login'])) {
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
     <head>
-        <meta charset="utf-8">
-        <title>Login - WVA System</title>
+        <!-- Required meta tags-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="au theme template">
+        <meta name="author" content="Hau Nguyen">
+        <meta name="keywords" content="au theme template">
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <meta name="apple-mobile-web-app-capable" content="yes"> 
+        <!-- Title Page-->
+        <title>Login</title>
 
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+        <!-- Fontfaces CSS-->
+        <link href="css/font-face.css" rel="stylesheet" media="all">
+        <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+        <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+        <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
-        <link href="css/font-awesome.css" rel="stylesheet">
-        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
+        <!-- Bootstrap CSS-->
+        <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
-        <link href="css/style.css" rel="stylesheet" type="text/css">
-        <link href="css/pages/signin.css" rel="stylesheet" type="text/css">
+        <!-- Vendor CSS-->
+        <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+        <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+        <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
+        <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+        <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
+        <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+        <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+        <!-- Main CSS-->
+        <link href="css/theme.css" rel="stylesheet" media="all">
 
     </head>
 
-    <body>
-
-        <div class="navbar navbar-fixed-top">
-
-            <div class="navbar-inner">
-
+    <body class="animsition">
+        <div class="page-wrapper">
+            <div class="page-content--bge5">
                 <div class="container">
-
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
-
-                    <a class="brand" href="index.html">
-                        Login - WVA System			
-                    </a>		
-
-                    <div class="nav-collapse">
-                        <ul class="nav pull-right">
-
-                            <li class="">						
-                                <a href="lembrar-me.html" class="">
-                                    Esqueceu sua senha?
+                    <div class="login-wrap">
+                        <div class="login-content">
+                            <?php
+                            include_once '../include/funcoesAdmin/loginAdmin.php';
+                            ?>
+                            <div class="login-logo">
+                                <a href="#">
+                                    <img src="images/icon/logo.png" alt="CoolAdmin">
                                 </a>
+                            </div>
+                            <div class="login-form">
+                                <form action="" method="post">
+                                    <div class="form-group">
+                                        <label>Usuário</label>
+                                        <input class="au-input au-input--full" type="text" name="login" placeholder="Usuario">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Senha</label>
+                                        <input class="au-input au-input--full" type="password" name="pws" placeholder="Senha">
+                                    </div>
 
-                            </li>
+                                    <input class="au-btn au-btn--block au-btn--green m-b-20" type="submit" name="botao" value="Entrar"/>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                            <li class="">						
-                                <a href="../index.php" class="">
-                                    <i class="icon-chevron-left"></i>
-                                    Acessar o site
-                                </a>
+        </div>
 
-                            </li>
-                        </ul>
+        <!-- Jquery JS-->
+        <script src="vendor/jquery-3.2.1.min.js"></script>
+        <!-- Bootstrap JS-->
+        <script src="vendor/bootstrap-4.1/popper.min.js"></script>
+        <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+        <!-- Vendor JS       -->
+        <script src="vendor/slick/slick.min.js">
+        </script>
+        <script src="vendor/wow/wow.min.js"></script>
+        <script src="vendor/animsition/animsition.min.js"></script>
+        <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+        </script>
+        <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
+        <script src="vendor/counter-up/jquery.counterup.min.js">
+        </script>
+        <script src="vendor/circle-progress/circle-progress.min.js"></script>
+        <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+        <script src="vendor/chartjs/Chart.bundle.min.js"></script>
+        <script src="vendor/select2/select2.min.js">
+        </script>
 
-                    </div><!--/.nav-collapse -->	
-
-                </div> <!-- /container -->
-
-            </div> <!-- /navbar-inner -->
-
-        </div> <!-- /navbar -->
-
-
-
-        <div class="account-container">
-<?php
-include_once '../include/funcoesAdmin/loginAdmin.php';
-?>
-            <div class="content clearfix">
-
-                <form action="#" method="post">
-
-                    <h1>Faça seu Login</h1>		
-
-                    <div class="login-fields">
-
-                        <p>Entre com seus dados:</p>
-
-                        <div class="field">
-                            <label for="username">Usuário</label>
-                            <input type="text" id="username" name="login" value="" placeholder="Usuário" class="login username-field" />
-                        </div> <!-- /field -->
-
-                        <div class="field">
-                            <label for="password">Senha:</label>
-                            <input type="password" id="password" name="pws" value="" placeholder="Senha" class="login password-field"/>
-                        </div> <!-- /password -->
-
-                    </div> <!-- /login-fields -->
-
-                    <div class="login-actions">
-
-
-
-                        <input type="submit" name="botao" value="Entrar no Sistema" class="button btn btn-success btn-large"/>
-
-                    </div> <!-- .actions -->
-
-
-
-                </form>
-
-            </div> <!-- /content -->
-
-        </div> <!-- /account-container -->
-
-
-        <script src="js/jquery-1.7.2.min.js"></script>
-        <script src="js/bootstrap.js"></script>
-
-        <script src="js/signin.js"></script>
+        <!-- Main JS-->
+        <script src="js/main.js"></script>
 
     </body>
 
 </html>
+<!-- end document-->

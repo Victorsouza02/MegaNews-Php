@@ -1,70 +1,86 @@
-<div class="row">
-    <div class="span12">
-        <div class="alert alert-info">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-            <strong>Olá, <?php echo $_SESSION['login'] ?></strong> Seja Bem vindo ao painel de Administrador !
+<!-- STATISTIC-->
+<?php
+$ctrlpost = new CtrlPostagem();
+$ctrluser = new CtrlUsuario();
+?>
+<section class="statistic mt-5">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row text-center">
+                <div class="col-md-4 col-lg-4">
+                    <div class="statistic__item">
+                        <h2 class="number"><?php echo $ctrluser->numUsuarios() ?></h2>
+                        <span class="desc">Membros</span>
+                        <div class="icon">
+                            <i class="zmdi zmdi-account-o"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <div class="statistic__item">
+                        <h2 class="number"><?php echo $ctrlpost->numPostagens() ?></h2>
+                        <span class="desc">Postagens Criadas</span>
+                        <div class="icon">
+                            <i class="zmdi zmdi-email"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-lg-4">
+                    <div class="statistic__item">
+                        <h2 class="number">1,086</h2>
+                        <span class="desc">Categorias Criadas</span>
+                        <div class="icon">
+                            <i class="zmdi zmdi-email"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</section>
+<!-- END STATISTIC-->
 
-
-    <div class="span12">	      		
-        <div id="target-1" class="widget">	      			
-            <div class="widget-content">	      				
-                <h1>Apresentação</h1>			      		
-                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ornare, tellus in feugiat fringilla, risus diam bibendum magna, hendrerit ultrices neque diam eu magna. In mattis vel velit eget accumsan. Quisque et ex ultricies, venenatis nisl lacinia, luctus tellus. Donec rhoncus, ex at consequat maximus, nisi arcu ultricies elit, ut pellentesque massa risus et ipsum. Aliquam scelerisque massa et lacus porttitor, eget semper dui maximus. Praesent id eros interdum, finibus nibh a, tincidunt urna. Nunc orci justo, egestas eget ultricies sit amet, tincidunt id tortor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer finibus quis sem ac condimentum. Cras interdum interdum faucibus. Aenean leo nisl, luctus non metus nec, aliquam suscipit mi. Cras eu ultrices nulla, ac pretium nibh. Proin nunc dolor, sollicitudin quis aliquet ac, interdum et ligula.
-
-                    Donec egestas turpis nec consequat tincidunt. Nulla quis enim quis nisi iaculis sagittis eget eleifend lectus. Duis auctor ipsum odio. Vestibulum blandit tortor non urna tincidunt fermentum. Donec dapibus diam diam. Nam finibus orci non tincidunt vulputate. Morbi eu lacinia massa. Sed at enim eget nisl pulvinar luctus ac eu turpis. Praesent ultrices ex vitae mauris mollis, sed aliquet tortor accumsan. Cras blandit, diam in vehicula vestibulum, magna ex elementum purus, vitae ullamcorper erat nisi accumsan purus. Nam venenatis ut sapien nec faucibus. Suspendisse venenatis consectetur mi a placerat. Donec a facilisis ipsum. </p>
-
-            </div> <!-- /widget-content -->
-        </div> <!-- /widget -->
-    </div><!-- span 12 -->
-
-
-</div><!-- row -->        
-
-
-<div class="widget widget-table action-table">
-    <div class="widget-header"> <i class="icon-th-list"></i>
-        <h3>Últimas Postagens</h3>
-    </div>
-    <!-- /widget-header -->
-    <div class="widget-content">
-        <table class="table table-striped table-bordered">
-            <thead>
+<section>
+    <div class="container">
+        <div class="table-responsive table--no-card m-b-30">
+            <table class="table table-borderless table-striped table-data3">
+                <thead>
+                <h3 class="text-center my-3">Ultimas postagens</h3>
                 <tr>
-                    <th scope="col"> # </th>
-                    <th scope="col"> Titulo </th>
-                    <th scope="col"> Descricao</th>
-                    <th scope="col"> Autor</th>
-                    <th scope="col"> Foto </th>
-                    <th class="td-actions">Ações </th>
+                    <th>#</th>
+                    <th>Titulo</th>
+                    <th>Descrição</th>
+                    <th>Autor</th>
+                    <th>Exibir</th>
+                    <th>Foto</th>
+                    <th class="text-left">Ação</th>
                 </tr>
-            </thead>
-            <tbody>
-                <?php
-                $caminho_foto = "../upload/postagens/";
-                $ctrl_postagem = new CtrlPostagem();
-                $lista = $ctrl_postagem->listarUltimasPostagens(5);
-                $ctuser = new CtrlUsuario();
-                foreach ($lista as $i => $value) {
-                    $idAutor = $lista[$i]['idUsuario'];
-                    $nomeAutor = $ctuser->dadosUsuarioById($idAutor);
-                    $idPostagem = $lista[$i]['idPostagem'];
-                    echo "<tr>";
-                    echo "<th scope='row'>$idPostagem</th>";
-                    echo "<td>" . $lista[$i]['titulo'] . "</td>";
-                    echo "<td>" . $lista[$i]['descricao'] . "</td>";
-                    echo "<td>" . $nomeAutor['login'] . "</td>";
-                    echo "<td> <img src='" . $caminho_foto . $lista[$i]['foto'] . "' style='width:90px; height:50px' /></td>";
-                    echo "<td class='td-actions'> <a href='home.php?acao=editar-postagem&id=$idPostagem' class='btn btn-small btn-success' style='display:inline;'><i class='btn-icon-only icon-edit'> </i></a>";
-                    echo "<a href='home.php?acao=ver-postagens&delete=$idPostagem' class='btn btn-danger btn-small' style='display:inline;'><i class='btn-icon-only icon-remove'> </i></a></td>";
-                    echo "</tr>";
-                }
-                ?>
-
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <?php
+                    $caminho_foto = "../upload/postagens/";
+                    $ctrl_postagem = new CtrlPostagem();
+                    $lista = $ctrl_postagem->listarPostagens();
+                    $ctuser = new CtrlUsuario();
+                    foreach ($lista as $i => $value) {
+                        $idAutor = $lista[$i]['idUsuario'];
+                        $nomeAutor = $ctuser->dadosUsuarioById($idAutor);
+                        $idPostagem = $lista[$i]['idPostagem'];
+                        echo "<tr>";
+                        echo "<th scope='row'>$idPostagem</th>";
+                        echo "<td>" . $lista[$i]['titulo'] . "</td>";
+                        echo "<td>" . $lista[$i]['descricao'] . "</td>";
+                        echo "<td>" . $nomeAutor['login'] . "</td>";
+                        echo "<td>" . $lista[$i]['exibir'] . "</td>";
+                        echo "<td> <img src='" . $caminho_foto . $lista[$i]['foto'] . "' style='min-width:100px; min-height:70px; max-width:130px;' /></td>";
+                        echo "<td class='td-actions'> <a href='home.php?acao=editar-postagem&id=$idPostagem' class='mx-1 btn btn-success btn-sm' style='display:inline;'><i class='btn-icon-only fa fa-edit'> </i></a>";
+                        echo "<a href='home.php?acao=ver-postagens&delete=$idPostagem' class='mx-1 btn btn-danger btn-sm' style='display:inline;'><i class='btn-icon-only fa fa-eraser'> </i></a></td>";
+                        echo "</tr>";
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <!-- /widget-content --> 
-</div>
-<!-- /widget --> 
+</section>

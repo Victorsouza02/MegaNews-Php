@@ -3,7 +3,7 @@ session_start();
 include_once "../controller/CtrlUsuario.php";
 include_once "../controller/CtrlGrupo.php";
 include_once "../controller/CtrlPostagem.php";
-
+include_once "../controller/CtrlCategoria.php";
 
 if (isset($_SESSION['login'])) {
     include_once '../include/constantes.php';
@@ -29,48 +29,36 @@ if (isset($_SESSION['login'])) {
     exit;
 }
 
-
 include_once '../include/funcoesAdmin/deslogarAdmin.php';
-include 'includeshome/header.php';
-include_once 'includeshome/topo.php';
+include_once 'include/header.html';
+include_once 'include/menus.php';
+
+if (isset($_GET['acao'])) {
+    $acao = $_GET['acao'];
+    if ($acao == "ver-postagens") {
+        include_once 'pages/ver-postagens.php';
+    };
+    if ($acao == "cad-postagem") {
+        include_once 'pages/cad-postagem.php';
+    };
+    if ($acao == "editar-postagem") {
+        include_once 'pages/editar-postagem.php';
+    };
+    if ($acao == "ver-usuarios") {
+        include_once 'pages/ver-usuarios.php';
+    };
+    if ($acao == "cad-usuario") {
+        include_once 'pages/cad-usuario.php';
+    };
+    if ($acao == "editar-usuario") {
+        include_once 'pages/editar-usuario.php';
+    };
+    if ($acao == "editar-postagem") {
+        include_once 'pages/editar-postagem.php';
+    };
+} else {
+    include_once 'pages/inicio.php';
+}
+include_once 'include/footer.html'
 ?>
-<div class="main">
-    <div class="main-inner">
-        <div class="container mx-auto">
-            <?php
-            if (isset($_GET['acao'])) {
-                $acao = $_GET['acao'];
-                if ($acao == "ver-postagens") {
-                    include_once 'pages/ver-postagens.php';
-                };
-                if ($acao == "cad-postagem") {
-                    include_once 'pages/cad-postagem.php';
-                };
-                if ($acao == "editar-postagem") {
-                    include_once 'pages/editar-postagem.php';
-                };
-                if ($acao == "ver-usuarios") {
-                    include_once 'pages/ver-usuarios.php';
-                };
-                if ($acao == "cad-usuario") {
-                    include_once 'pages/cad-usuario.php';
-                };
-                if ($acao == "editar-usuario") {
-                    include_once 'pages/editar-usuario.php';
-                };
-                if ($acao == "editar-postagem") {
-                    include_once 'pages/editar-postagem.php';
-                };
-            } else {
-                include_once 'pages/inicio.php';
-            }
-            ?>
 
-        </div>
-        <!-- /span6 --> 
-    </div>
-    <!-- /row --> 
-</div>
-
-<!-- /main -->
-<?php include 'includeshome/footer.php'; ?>
