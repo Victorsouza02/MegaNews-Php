@@ -20,8 +20,41 @@ class CategoriaDao {
             $cadastro->bindParam(":nome", $nome, PDO::PARAM_STR);
             $cadastro->execute();
         } catch (PDOException $ex) {
-            echo "Erro : ".$ex->getMessage();
+            echo "Erro : " . $ex->getMessage();
         }
+    }
+
+    public function deletar($idCat) {
+        try {
+            $sql = "DELETE FROM categoria WHERE idCategoria =:idCat";
+            $conectar = $this->conexao->getCon();
+            $deletar = $conectar->prepare($sql);
+            $deletar->bindParam(":idCat", $idCat);
+            $deletar->execute();
+            return true;
+        } catch (PDOException $ex) {
+            echo $ex;
+            return false;
+        }
+    }
+
+    public function listarCategorias() {
+        $sql = "SELECT * from categoria";
+        $conectar = $this->conexao->getCon();
+        $lista = $conectar->prepare($sql);
+        $lista->execute();
+        $categorias = $lista->fetchAll();
+        return $categorias;
+    }
+
+    public function obterNomeCat($id) {
+        $sql = "SELECT * from categoria WHERE idCategoria = :id";
+        $conectar = $this->conexao->getCon();
+        $lista = $conectar->prepare($sql);
+        $lista->bindParam(":id", $id);
+        $lista->execute();
+        $categorias = $lista->fetch();
+        return $categorias['nome'];
     }
 
 }

@@ -4,10 +4,10 @@ include_once 'views/index/header.html';
 include_once 'controller/CtrlUsuario.php';
 include_once 'controller/CtrlGrupo.php';
 include_once 'controller/CtrlPostagem.php';
+include_once 'controller/CtrlCategoria.php';
 include_once 'include/verificarSessaoIndex.php';
 ?>
 
-<a href="http://www.google.com" class="testlink">teste</a>
 <!-- SLIDES -->
 <section id="slides" class="corsecaoslides">
     <div class="container-fluid pb-3">

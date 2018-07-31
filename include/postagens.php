@@ -26,6 +26,10 @@ foreach ($posts as $key => $value) {
     $idpost = $posts[$key]['idPostagem'];
     $foto = $caminho . $posts[$key]['foto'];
     $titulo = $posts[$key]['titulo'];
+    
+    $ctrlcat = new CtrlCategoria();
+    $idcategoria = $posts[$key]['idCategoria'];
+    $nomecategoria = $ctrlcat->obterNomeCat($posts[$key]['idCategoria']);
     $descricao = $posts[$key]['descricao'];
     $dadosautor = $ctrl_user->dadosUsuarioById($posts[$key]['idUsuario']);
     $autor = $dadosautor['login'];
@@ -61,7 +65,7 @@ foreach ($posts as $key => $value) {
 
             <div class="row mt-2" id="categoria">
                 <div class="col-md-12 text-center">
-                    <p>Categoria : <a href="#"> Categoria </a> </p>
+                    <p>Categoria : <a href="index.php?cat='.$idcategoria.'"> '.$nomecategoria.' </a> </p>
                 </div>
             </div>
         </div>

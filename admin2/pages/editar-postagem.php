@@ -48,6 +48,29 @@
                         </select>
                     </div>
                 </div>
+                
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="selectSm" class=" form-control-label">Categoria</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <select name="categoria" id="SelectLm" class="form-control-sm form-control">
+                            <?php
+                                $ctrl_cat = new CtrlCategoria();
+                                $dados_cat = $ctrl_cat->listarCategorias();                   
+                                $ctrl_post = new CtrlPostagem();
+                                $dadospost = $ctrl_post->dadosPostagemById($_GET['id']);                    
+                                foreach ($dados_cat as $key => $value) {
+                                    if($dadospost['idCategoria'] == $dados_cat[$key]['idCategoria']){
+                                    echo "<option value='".$dados_cat[$key]['idCategoria']."' selected>".$dados_cat[$key]['nome']."</option>";
+                                    } else {
+                                        echo "<option value='".$dados_cat[$key]['idCategoria']."'>".$dados_cat[$key]['nome']."</option>";
+                                    }
+                                }
+                            ?>
+                        </select>
+                    </div>
+                </div>
 
                 <div class="row form-group">
                     <div class="col col-md-3">

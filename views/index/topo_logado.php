@@ -21,8 +21,14 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorias</a>
                         <div class="dropdown-menu" aria-labelledby="dropdownId">
-                            <a class="dropdown-item" href="#">Action 1</a>
-                            <a class="dropdown-item" href="#">Action 2</a>
+                            <?php
+                                $ctrl_cat = new CtrlCategoria();
+                                $dados_cat = $ctrl_cat->listarCategorias();
+                                
+                                foreach ($dados_cat as $key => $value) {
+                                    echo "<a class='dropdown-item' href='index.php?cat=".$dados_cat[$key]['idCategoria']."'>".$dados_cat[$key]['nome']."</a>";
+                                }
+                            ?>
                         </div>
                     </li>
                 </ul>

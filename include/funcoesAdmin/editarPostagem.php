@@ -16,6 +16,7 @@ if(isset($_POST['editarpostagem'])){
     $post_model->setTitulo($_POST['titulo']);
     $post_model->setDescricao($_POST['descricao']);
     $post_model->setExibir($_POST['exibir']);
+    $post_model->setCategoria($_POST['categoria']);
     $post_model->setConteudo($_POST['texto']);
     $res_post_edit = $post_model->verificarEdicao($dadospost_atual, $_FILES['foto']);
     

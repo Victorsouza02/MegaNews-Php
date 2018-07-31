@@ -10,4 +10,21 @@ class CtrlCategoria {
         $dao = new CategoriaDao();
         $dao->cadastrar($categoria);
     }
+    
+    public function deletar($idCat) {
+        $dao = new CategoriaDao();
+        $dao->deletar($idCat);
+    }
+    
+    public function listarCategorias(){
+        $dao = new CategoriaDao();
+        $categorias =$dao->listarCategorias();
+        return $categorias;
+    }
+    
+    public function obterNomeCat($id){
+        $dao = new CategoriaDao();
+        $nome = $dao->obterNomeCat($id);
+        return $nome;
+    }
 }

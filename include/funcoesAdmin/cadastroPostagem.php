@@ -9,6 +9,7 @@ if (isset($_POST['cadastrar'])) {
     $post->setData(date("Y-m-d"));
     $post->setExibir($_POST['exibir']);
     $post->setDescricao(trim(strip_tags($_POST['descricao'])));
+    $post->setCategoria($_POST['categoria']);
     $post->setConteudo(strip_tags(stripslashes($_POST['texto']), $allowedTags));
     $post->setAutor($_SESSION['idUsuario']);
     $erros_post = $post->validarCampos();

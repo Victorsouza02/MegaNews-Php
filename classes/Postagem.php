@@ -9,8 +9,11 @@ class Postagem {
     private $exibir;
     private $descricao;
     private $conteudo;
+    private $categoria;
     private $foto;
     private $file_foto;
+    
+    
 
     function validarCampos() {
         $erros = array();
@@ -142,7 +145,15 @@ class Postagem {
         }
     }
 
-    function getFile_foto() {
+    function getCategoria() {
+        return $this->categoria;
+    }
+
+    function setCategoria($categoria) {
+        $this->categoria = $categoria;
+    }
+
+        function getFile_foto() {
         return $this->file_foto;
     }
 

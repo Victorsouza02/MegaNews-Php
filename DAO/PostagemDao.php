@@ -13,7 +13,7 @@ class PostagemDao {
 
     public function cadastrar(Postagem $post) {
         try {
-            $sql = "INSERT INTO postagem (titulo,descricao,texto,foto,data,exibir,idUsuario) VALUES (:titulo, :descricao, :texto,:foto, :data, :exibir, :idUsuario)";
+            $sql = "INSERT INTO postagem (titulo,descricao,texto,foto,data,exibir,idUsuario,idCategoria) VALUES (:titulo, :descricao, :texto,:foto, :data, :exibir, :idUsuario, :idCat)";
             $conectar = $this->conexao->getCon();
             $inserir = $conectar->prepare($sql);
             $titulo = $post->getTitulo();
@@ -21,6 +21,7 @@ class PostagemDao {
             $texto = $post->getConteudo();
             $foto = $post->getFoto();
             $data = $post->getData();
+            $idCat = $post->getCategoria();
             $exibir = $post->getExibir();
             $idUsuario = $post->getAutor();
             $inserir->bindParam(":titulo", $titulo, PDO::PARAM_STR);
@@ -30,6 +31,7 @@ class PostagemDao {
             $inserir->bindParam(":data", $data, PDO::PARAM_STR);
             $inserir->bindParam(":exibir", $exibir, PDO::PARAM_STR);
             $inserir->bindParam(":idUsuario", $idUsuario, PDO::PARAM_STR);
+            $inserir->bindParam(":idCat", $idCat, PDO::PARAM_INT);
             $inserir->execute();
             return true;
         } catch (PDOException $ex) {
@@ -46,7 +48,8 @@ class PostagemDao {
             $exibir = $post->getExibir();
             $descricao = $post->getDescricao();
             $texto = $post->getConteudo();
-            $sql = "UPDATE postagem SET titulo= :titulo,foto = :foto, exibir = :exibir, descricao=:descricao, texto=:texto WHERE idPostagem = :idPostagem";
+            $idCat = $post->getCategoria();
+            $sql = "UPDATE postagem SET titulo= :titulo,foto = :foto, exibir = :exibir, descricao=:descricao, texto=:texto , idCategoria=:idCat WHERE idPostagem = :idPostagem";
             $conectar = $this->conexao->getCon();
             /* @var $conectar PDO */
             $editar = $conectar->prepare($sql);
@@ -56,6 +59,7 @@ class PostagemDao {
             $editar->bindParam(":descricao", $descricao);
             $editar->bindParam(":texto", $texto);
             $editar->bindParam(":idPostagem", $idPostagem);
+            $editar->bindParam(":idCat", $idCat);
             $editar->execute();
             return true;
         } catch (PDOException $ex) {
