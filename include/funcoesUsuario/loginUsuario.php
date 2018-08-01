@@ -26,14 +26,8 @@ if (isset($_POST['botao'])) {
             
             include_once 'include/constantes.php';
 
-            echo '<div class = "alert alert-success">
-            <button type = "button" class = "close" data-dismiss = "alert">&times;
-            </button>
-            <strong>Sucesso!</strong> Login feito com sucesso
-            </div>';
-            echo "<script>";
-            echo 'setTimeout(function(){ window.location.href = "index.php"; }, 2000);';
-            echo "</script>";
+            echo '<script>alertify.alert("Login Realizado","Login feito com sucesso")</script>';
+
         } else {
             echo '<div class = "alert alert-danger">
             <button type = "button" class = "close" data-dismiss = "alert">&times;

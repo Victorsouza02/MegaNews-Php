@@ -21,23 +21,25 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorias</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="#">Action 1</a>
-                        <a class="dropdown-item" href="#">Action 2</a>
+                        <?php
+                                $ctrl_cat = new CtrlCategoria();
+                                $dados_cat = $ctrl_cat->listarCategorias();
+                                
+                                foreach ($dados_cat as $key => $value) {
+                                    echo "<a class='dropdown-item' href='index.php?cat=".$dados_cat[$key]['idCategoria']."'>".$dados_cat[$key]['nome']."</a>";
+                                }
+                            ?>
                     </div>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li>
-                        <a class="nav-link" data-toggle="modal" data-target="#cadastroModal" href="#">Cadastre-se
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" data-toggle="modal" data-target="#entrarModal" href="#">Login</a>
-                    </li>
-                </ul>
-            </form>
+            
+            <?php
+                if(isset($_SESSION['login'])){
+                    include_once 'views/index/menulogado.php';
+                } else {
+                    include_once 'views/index/menupadrao.php';
+                }
+            ?>
         </div>
     </div>
 </nav>
@@ -104,6 +106,39 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                     <input type="submit" class="btn btn-primary" name="botaoregistrar" value="Registrar">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- Modal ALTERAR FOTO -->
+<form id="ajax-register-form" method="post" role="form" autocomplete="off" enctype="multipart/form-data">
+    <div class="modal fade" id="alterarFotoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Alterar Foto de Perfil</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="mr-3">Foto Atual</label>
+                        <img src="<?php if (FOTOUSUARIO == "") {
+                                echo $path_foto . "embranco.png";
+                            } else {
+                                echo $path_foto . FOTOUSUARIO;
+                            } ?>" style="width: 90px; height: 90px;"/>
+                    </div>
+
+                    <div class="form-group">											
+                        <label class="mr-3">Nova Foto</label>
+                        <input type="file" multiple class="span6 fileinput" id="imagem" name="nova_foto">				
+                    </div> <!-- /control-group -->
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <input type="submit" class="btn btn-primary" name="alterarfoto" value="Alterar">
                 </div>
             </div>
         </div>

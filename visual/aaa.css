@@ -1,3 +1,7 @@
+.esconder{
+    display: none;
+}
+
 @font-face {
      font-family: bitfont;
      src: local('bitfont.ttf'), url('fonts/bitfont.ttf');

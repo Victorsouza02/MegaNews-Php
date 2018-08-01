@@ -5,7 +5,8 @@ include_once 'controller/CtrlUsuario.php';
 include_once 'controller/CtrlGrupo.php';
 include_once 'controller/CtrlPostagem.php';
 include_once 'controller/CtrlCategoria.php';
-include_once 'include/verificarSessaoIndex.php';
+include_once 'include/funcoesGerais/verificarSessaoIndex.php';
+include_once 'views/index/topo.php';
 ?>
 
 <!-- SLIDES -->
@@ -15,7 +16,7 @@ include_once 'include/verificarSessaoIndex.php';
             <div class="offset-md-1 col-md-6">
                 <!-- #################### INICIO CAROUSEL ################## -->
                 <div id="carousel-example-2" class="carousel slide carousel-fade mt-3" style="width: 100%;max-height: 550px;"data-ride="carousel">
-                    <?php include_once 'include/slidesconteudo.php' ?>
+                    <?php include_once 'views/index/slidesconteudo.php' ?>
                     <!--/.Slides-->
                     <!--Controls-->
                     <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
@@ -34,19 +35,7 @@ include_once 'include/verificarSessaoIndex.php';
             <div class="col-md-3 col-md-offset-right-2 mt-3 d-none d-md-block" id="maisacessadas">
                 <!-- #################### INICIO CAROUSEL ################## -->
                 <div class="row">
-                    <?php
-                    $caminho_foto = "upload/postagens/";
-                    $ctrl_postagem = new CtrlPostagem();
-                    $maisacessadas = $ctrl_postagem->exibirMaisAcessadas(2);
-
-                    foreach ($maisacessadas as $key => $value) {
-                        echo '<div class="col-md-12 py-1 px-0" style="position: relative;">
-                        <img src="' . $caminho_foto . $maisacessadas[$key]['foto'] . '" class="w-100">
-                        <div class="bottom-right fontebranca w-100"><h5 class="text-center">' . $maisacessadas[$key]['titulo'] . '</h5></div>
-                    </div>';
-                    }
-                    ?>
-
+                   <?php include_once 'views/index/maisacessadas.php';?>
                 </div>
                 <!-- FIM COLUNA ULTIMAS NOTICIAS -->
             </div>
@@ -61,20 +50,7 @@ include_once 'include/verificarSessaoIndex.php';
     <div class="container" style="max-width: 1640px!important">
         <div class="row">
             <div class="col-md-9 ">
-                <?php
-                if (isset($_GET['acao']) && $_GET['acao'] == "postagem" && isset($_GET['idpost'])) {
-                    include_once 'views/index/postagem.php';
-                } else if (isset($_GET['cat'])) {
-                    $ctrl_cat = new CtrlCategoria();
-                    $nomecat = $ctrl_cat->obterNomeCat($_GET['cat']);
-                    echo '<h1 class="text-center">'.$nomecat.'</h1>';
-                    include_once "include/postagensPorCategoria.php";
-                } else {
-                    echo '<h1 class="text-center"> Notícias</h1>';
-                    include_once 'include/postagens.php';
-                }
-                ?>
-
+                <?php include_once 'include/funcoesGerais/verificarSecaoPostagem.php';?>
             </div>
 
             <div class="col-md-3 text-center d-none d-md-block">
