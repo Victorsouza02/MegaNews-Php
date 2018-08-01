@@ -23,6 +23,7 @@ $caminho = "upload/postagens/";
 
     <?php
     foreach ($slides_conteudo as $key => $value) {
+        $idpost = $slides_conteudo[$key]['idPostagem'];
         if ($key == 0) {
             echo '<div class="carousel-item active">
         <div class="view hm-black-light">
@@ -30,7 +31,7 @@ $caminho = "upload/postagens/";
             <div class="mask"></div>
         </div>
         <div class="carousel-caption textocarousel">
-            <h3 class="h3-responsive tituloslide">' . $slides_conteudo[$key]['titulo'] . '</h3>
+            <h3 class="h3-responsive tituloslide"><a href="index.php?acao=postagem&idpost='.$idpost.'#postagem">' . $slides_conteudo[$key]['titulo'] . '</a></h3>
         </div>
     </div>';
         } else {
@@ -41,7 +42,7 @@ $caminho = "upload/postagens/";
             <div class="mask"></div>
         </div>
         <div class="carousel-caption">
-            <h3 class="h3-responsive tituloslide">' . $slides_conteudo[$key]['titulo'] . '</h3>
+            <h3 class="h3-responsive tituloslide"><a href="index.php?acao=postagem&idpost='.$idpost.'#postagem">' . $slides_conteudo[$key]['titulo'] . '</a></h3>
         </div>
     </div>';
         }
