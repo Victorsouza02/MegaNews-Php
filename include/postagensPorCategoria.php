@@ -1,3 +1,4 @@
+ 
 
 <?php
 $caminho = "upload/postagens/";
@@ -14,7 +15,7 @@ $inicio = $inicio * $max_por_pag;
 $ctrl_posts = new CtrlPostagem();
 $ctrl_user = new CtrlUsuario();
 $total_posts = $ctrl_posts->listarPostagens();
-$posts = $ctrl_posts->paginacaoPostagem($inicio, $max_por_pag);
+$posts = $ctrl_posts->postagemPorCategoria($inicio, $max_por_pag, $_GET['cat']);
 $total_postagens = 0;
 
 foreach ($total_posts as $key) {
@@ -86,7 +87,4 @@ if ($pc < $total_paginas) {
 }
 echo "</div>";
 ?>
-
-
-
 

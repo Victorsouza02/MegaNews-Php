@@ -1,5 +1,5 @@
 <?php
-
+include_once $_SERVER['DOCUMENT_ROOT']."/controller/CtrlUsuario.php";
 class Usuario {
 
     private $codUsuario;
@@ -16,11 +16,16 @@ class Usuario {
 
     public function verificarCadastro() {
         $erros = "";
+        $ctrl = new CtrlUsuario();
+        $res_login = $ctrl->isExistente($this->login);
+        
         if ($this->nome == '') {
             $erros .= "O campo nome está vazio.<br>";
         }
         if ($this->login == '') {
             $erros .= "O campo login está vazio.<br>";
+        } else if (!($res_login)){
+            $erros .= "Já existe um usuário com este login.<br>";
         }
         if ($this->senha == "") {
             $erros .= "O campo senha está vazio.<br>";
@@ -58,7 +63,7 @@ class Usuario {
                 $erros[3] = "A imagem deve ter no máximo " . $tamanho . " bytes<br>";
             } // Verifica se o tamanho da imagem é maior que o tamanho permitido 
         } else {
-            $erros[4] = "Imagem não foi selecionada<br>";
+            return $msg;
         }
 
         foreach ($erros as $key => $value) {

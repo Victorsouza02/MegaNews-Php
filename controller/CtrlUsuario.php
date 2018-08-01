@@ -53,6 +53,11 @@ class CtrlUsuario {
         return $lista_users;
     }
 
+    public function isExistente($login){
+        $dao = new UsuarioDao();
+        $resp = $dao->isExistente($login);
+        return $resp;
+    }
 
     public function dadosUsuarioByLogin(Usuario $user) {
         $user_dao = new UsuarioDao();

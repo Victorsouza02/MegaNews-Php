@@ -41,12 +41,12 @@ include_once 'include/verificarSessaoIndex.php';
 
                     foreach ($maisacessadas as $key => $value) {
                         echo '<div class="col-md-12 py-1 px-0" style="position: relative;">
-                        <img src="'.$caminho_foto.$maisacessadas[$key]['foto'].'" class="w-100">
-                        <div class="bottom-right fontebranca w-100"><h5 class="text-center">'.$maisacessadas[$key]['titulo'].'</h5></div>
+                        <img src="' . $caminho_foto . $maisacessadas[$key]['foto'] . '" class="w-100">
+                        <div class="bottom-right fontebranca w-100"><h5 class="text-center">' . $maisacessadas[$key]['titulo'] . '</h5></div>
                     </div>';
                     }
                     ?>
-  
+
                 </div>
                 <!-- FIM COLUNA ULTIMAS NOTICIAS -->
             </div>
@@ -64,6 +64,11 @@ include_once 'include/verificarSessaoIndex.php';
                 <?php
                 if (isset($_GET['acao']) && $_GET['acao'] == "postagem" && isset($_GET['idpost'])) {
                     include_once 'views/index/postagem.php';
+                } else if (isset($_GET['cat'])) {
+                    $ctrl_cat = new CtrlCategoria();
+                    $nomecat = $ctrl_cat->obterNomeCat($_GET['cat']);
+                    echo '<h1 class="text-center">'.$nomecat.'</h1>';
+                    include_once "include/postagensPorCategoria.php";
                 } else {
                     echo '<h1 class="text-center"> Notícias</h1>';
                     include_once 'include/postagens.php';

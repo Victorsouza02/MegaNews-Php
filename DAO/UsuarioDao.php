@@ -228,5 +228,18 @@ class UsuarioDao {
         return $res_row;
     }
 
+    public function isExistente($login){
+        $sql = "SELECT * FROM usuario WHERE login=:login";
+        $conectar = $this->conexao->getCon();
+        $consultar = $conectar->prepare($sql);
+        $consultar->bindParam(":login", $login, PDO::PARAM_STR);
+        $consultar->execute();
+        $res_row = $consultar->rowCount();
+        
+        if($res_row == 0){
+            return true;
+        }
+        return false;
+    }
 
 }

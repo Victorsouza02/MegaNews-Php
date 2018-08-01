@@ -51,6 +51,12 @@ class CtrlPostagem {
         return $result;
     }
     
+    public function postagemPorCategoria($inicio,$max_por_pag,$idCategoria) {
+        $dao = new PostagemDao();
+        $result = $dao->postagemPorCategoria($inicio, $max_por_pag, $idCategoria);
+        return $result;
+    }
+    
     public function buscar($dados){
         $dao = new PostagemDao();
         $result = $dao->buscar($dados);
