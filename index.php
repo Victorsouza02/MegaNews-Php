@@ -47,7 +47,7 @@ include_once 'views/index/topo.php';
 
 <!-- INICIO POSTAGENS -->
 <section id="postagens">
-    <div class="container" style="max-width: 1640px!important">
+    <div class="container" style="max-width: 1540px!important">
         <div class="row">
             <div class="col-md-9 ">
                 <?php include_once 'include/funcoesGerais/verificarSecaoPostagem.php';?>
