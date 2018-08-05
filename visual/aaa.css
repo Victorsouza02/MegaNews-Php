@@ -3,8 +3,8 @@
 }
 
 @font-face {
-     font-family: bitfont;
-     src: local('bitfont.ttf'), url('fonts/bitfont.ttf');
+    font-family: bitfont;
+    src: local('bitfont.ttf'), url('fonts/bitfont.ttf');
 }
 
 #fotos_topo {
@@ -68,6 +68,7 @@ nav div div ul li a:hover {
 .tituloslide {
     background-color: rgba(0,0,0,0.7);
     padding: 10px;
+    word-wrap: break-word;
 }
 
 
@@ -101,11 +102,17 @@ nav div div ul li a:hover {
     color:#fff;
     border: 2px solid #000;
     border-radius: 10px;
+    word-wrap: break-word;
 }
 
 #postagem img {
     max-width: 100%!important;
     height:auto!important;
+}
+
+#postagem iframe {
+    max-width: 100%!important;
+    min-height: auto;
 }
 
 
@@ -135,6 +142,14 @@ nav div div ul li a:hover {
         text-align: left;
     }
 
+    .tituloslide {
+        font-size: 16px;
+    }
+
+    .titulo , .autor {
+        font-size: 18px;
+    }
+
     #postagens .formapostagem h3 {
         font-size : 20px;
     }
@@ -145,3 +160,5 @@ nav div div ul li a:hover {
         display: none!important;
     }
 } 
+
+

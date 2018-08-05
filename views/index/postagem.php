@@ -24,7 +24,7 @@ $ctrl->addContagem($dados['contagem'],$dados['idPostagem']);
     </div>
 </section>
 <section id="comentarios">
-    <div class="fb-comments" data-href="index.php?acao=postagem&idpost=<?php echo $_GET['idpost']?>" data-numposts="5" data-width="100%"></div>
+    <div class="fb-comments" data-href="http://victorsouza02php.orgfree.com/index.php?acao=postagem&idpost=<?php echo $_GET['idpost']?>" data-numposts="5" data-width="100%"></div>
 </section>
 
 
