@@ -44,14 +44,14 @@ foreach ($posts as $key => $value) {
                     <h3 class="h3-responsive">' . $titulo . '</h3>
                 </div>
             </div>
-
+            <hr class="my-1">
             <div class="row" id="descricao">
                 <div class="col-md-12 text-center">
                     <p>' . $descricao . '</p>
                     <a href="index.php?acao=postagem&idpost='.$idpost.'#postagem">Leia a notícia completa</a>
                 </div>
             </div>
-
+            <hr class="my-1">
             <div class="row mt-2" id="autor">
                 <div class="col-md-6 text-center">
                     <p>Autor : ' . $autor . '</p>
@@ -61,7 +61,7 @@ foreach ($posts as $key => $value) {
                     <p>Data de Publicação : ' . $data . '</p>
                 </div>
             </div>
-
+            
             <div class="row mt-2" id="categoria">
                 <div class="col-md-12 text-center">
                     <p>Categoria : <a href="index.php?cat='.$idcategoria.'"> '.$nomecategoria.' </a> </p>

@@ -35,7 +35,7 @@ include_once 'views/index/topo.php';
             <div class="col-md-3 col-md-offset-right-2 mt-3 d-none d-md-block" id="maisacessadas">
                 <!-- #################### INICIO CAROUSEL ################## -->
                 <div class="row">
-                   <?php include_once 'views/index/maisacessadas.php';?>
+                    <?php include_once 'views/index/maisacessadas.php'; ?>
                 </div>
                 <!-- FIM COLUNA ULTIMAS NOTICIAS -->
             </div>
@@ -50,7 +50,7 @@ include_once 'views/index/topo.php';
     <div class="container" style="max-width: 1540px!important">
         <div class="row">
             <div class="col-md-9 ">
-                <?php include_once 'include/funcoesGerais/verificarSecaoPostagem.php';?>
+                <?php include_once 'include/funcoesGerais/verificarSecaoPostagem.php'; ?>
             </div>
 
             <div class="col-md-3 text-center d-none d-md-block">
@@ -60,6 +60,7 @@ include_once 'views/index/topo.php';
         </div>
     </div>
 </section>
+
 <!-- FIM POSTAGENS -->    
 
 <?php include_once 'views/index/footer.html'; ?>

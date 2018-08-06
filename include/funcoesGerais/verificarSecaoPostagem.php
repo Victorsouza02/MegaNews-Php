@@ -8,7 +8,7 @@ if (isset($_GET['acao']) && $_GET['acao'] == "postagem" && isset($_GET['idpost']
     echo '<h1 class="text-center">' . $nomecat . '</h1>';
     include_once "views/index/postagensPorCategoria.php";
 } else {
-    echo '<h1 class="text-center"> Notícias</h1>';
+    echo '<h1 class="text-center">Notícias</h1>';
     include_once 'views/index/postagens.php';
 }
 

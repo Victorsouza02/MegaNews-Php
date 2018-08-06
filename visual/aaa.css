@@ -2,6 +2,9 @@
     display: none;
 }
 
+body {
+    background-color: #f2f2f2;
+}
 @font-face {
     font-family: bitfont;
     src: local('bitfont.ttf'), url('fonts/bitfont.ttf');
@@ -69,6 +72,7 @@ nav div div ul li a:hover {
     background-color: rgba(0,0,0,0.7);
     padding: 10px;
     word-wrap: break-word;
+    font-family: bitfont;
 }
 
 
@@ -79,13 +83,27 @@ nav div div ul li a:hover {
     background-color: #2859cd;
 }
 
+#maisacessadas h5 {
+    font-family: bitfont;
+}
+
 /* POSTAGENS */
+#postagens h1 , #postagens h3 {
+    font-family: bitfont;
+}
 #postagens {
     margin-top: 20px;
 }
 .formapostagem {
-    border: 2px solid #87878a;
-    box-shadow: 7px 7px 4px #aaaaaa;
+    border-radius: 5px;
+    background-color: #f4f4f4;
+    padding-bottom: 6px;
+    border-bottom: 5px solid #2859cd;
+    border-top: 1px solid #e7e7e7;
+    border-left: 1px solid #e7e7e7;
+    border-right: 1px solid #e7e7e7;
+    box-shadow: 0px 7px 4px #aaaaaa;
+    margin-bottom: 50px;
 }
 
 #botoespaginacao a {
@@ -135,6 +153,7 @@ nav div div ul li a:hover {
 }
 
 
+
 /* MEDIA QUERIES */
 
 @media (max-width: 768px) { 
@@ -160,5 +179,7 @@ nav div div ul li a:hover {
         display: none!important;
     }
 } 
+
+
 
 
