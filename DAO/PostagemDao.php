@@ -82,19 +82,18 @@ class PostagemDao {
     }
 
     public function buscar($dados) {
-        try{
-        $sql = "SELECT * from postagem WHERE titulo LIKE ?";
-        $conectar = $this->conexao->getCon();
-        $buscarPostagem = $conectar->prepare($sql);
-        $buscarPostagem->execute(array("$dados%"));
-        $postagem = $buscarPostagem->fetchAll();
-        } catch (PDOException $ex){
-            echo "Erro : ".$ex->getMessage();
+        try {
+            $sql = "SELECT * from postagem WHERE titulo LIKE ?";
+            $conectar = $this->conexao->getCon();
+            $buscarPostagem = $conectar->prepare($sql);
+            $buscarPostagem->execute(array("$dados%"));
+            $postagem = $buscarPostagem->fetchAll();
+        } catch (PDOException $ex) {
+            echo "Erro : " . $ex->getMessage();
         } finally {
-           $conectar = null;
-           return $postagem;
+            $conectar = null;
+            return $postagem;
         }
-        
     }
 
     public function exibirUltimasNoticias($limite) {
@@ -109,7 +108,7 @@ class PostagemDao {
         return $resultado;
     }
 
-    public function addContagem($contagem_atual,$id) {
+    public function addContagem($contagem_atual, $id) {
         $contagem = $contagem_atual + 1;
         $sql = "UPDATE postagem SET contagem = :contagem WHERE idPostagem = :idPostagem";
         $conectar = $this->conexao->getCon();
@@ -169,18 +168,41 @@ class PostagemDao {
         $resultado = $exibir->fetchAll();
         return $resultado;
     }
-    
-    public function postagemPorCategoria($inicio,$max_por_pag,$idCategoria){
-        $opcao = "S";
-        $sql = "SELECT * FROM postagem  WHERE exibir=:exibir AND idCategoria = :id ORDER BY idPostagem DESC LIMIT :inicio,:max";
-        $conectar = $this->conexao->getCon();
-        $exibir = $conectar->prepare($sql);
-        $exibir->bindParam(":inicio", $inicio, PDO::PARAM_INT);
-        $exibir->bindParam(":exibir", $opcao, PDO::PARAM_STR);
-        $exibir->bindParam(":max", $max_por_pag, PDO::PARAM_INT);
-        $exibir->bindParam(":id", $idCategoria, PDO::PARAM_INT);
-        $exibir->execute();
-        $resultado = $exibir->fetchAll();
+
+    public function postagemPorCategoria($inicio, $max_por_pag, $idCategoria) {
+        try {
+            $opcao = "S";
+            $sql = "SELECT * FROM postagem  WHERE exibir=:exibir AND idCategoria = :id ORDER BY idPostagem DESC LIMIT :inicio,:max";
+            $conectar = $this->conexao->getCon();
+            $exibir = $conectar->prepare($sql);
+            $exibir->bindParam(":inicio", $inicio, PDO::PARAM_INT);
+            $exibir->bindParam(":exibir", $opcao, PDO::PARAM_STR);
+            $exibir->bindParam(":max", $max_por_pag, PDO::PARAM_INT);
+            $exibir->bindParam(":id", $idCategoria, PDO::PARAM_INT);
+            $exibir->execute();
+            $resultado = $exibir->fetchAll();
+        } catch (PDOException $ex) {
+            echo $ex->getMessage();
+        }
+        return $resultado;
+    }
+
+    public function postagemPorTitulo($inicio, $max_por_pag, $titulo) {
+        try {
+            $titulo = $titulo."%";
+            $opcao = "S";
+            $sql = "SELECT * FROM postagem  WHERE exibir=:exibir AND titulo LIKE :titulo ORDER BY idPostagem DESC LIMIT :inicio,:max";
+            $conectar = $this->conexao->getCon();
+            $exibir = $conectar->prepare($sql);
+            $exibir->bindParam(":inicio", $inicio, PDO::PARAM_INT);
+            $exibir->bindParam(":exibir", $opcao, PDO::PARAM_STR);
+            $exibir->bindParam(":max", $max_por_pag, PDO::PARAM_INT);
+            $exibir->bindParam(":titulo", $titulo , PDO::PARAM_STR);
+            $exibir->execute();
+            $resultado = $exibir->fetchAll();
+        } catch (PDOException $ex) {
+            echo "<script>alert('".$ex->getMessage()."')</script>";
+        }
         return $resultado;
     }
 

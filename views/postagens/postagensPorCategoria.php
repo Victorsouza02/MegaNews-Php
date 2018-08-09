@@ -22,6 +22,7 @@ foreach ($total_posts as $key) {
     $total_postagens++;
 }
 
+
 foreach ($posts as $key => $value) {
     $idpost = $posts[$key]['idPostagem'];
     $foto = $caminho . $posts[$key]['foto'];

@@ -1,15 +1,12 @@
-<form class="form-inline my-2 my-lg-0">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li>
-            <a class="nav-link" data-toggle="modal" data-target="#cadastroModal" href="#">Cadastre-se
-                <span class="sr-only">(current)</span>
-            </a>
-        </li>
-        <li>
-            <a class="nav-link" data-toggle="modal" data-target="#entrarModal" href="#">Login</a>
-        </li>
-    </ul>
-</form>
+<li>
+    <a class="nav-link" data-toggle="modal" data-target="#cadastroModal" href="#">Cadastre-se
+        <span class="sr-only">(current)</span>
+    </a>
+</li>
+<li>
+    <a class="nav-link" data-toggle="modal" data-target="#entrarModal" href="#">Login</a>
+</li>
+
 
 <!-- Modal ENTRAR USUARIO -->
 <form id="ajax-register-form" method="post" role="form" autocomplete="off">
@@ -66,9 +63,9 @@
 
                     <div class="form-group">											
                         <label class="mr-3">Foto de Perfil(Opcional até 400x400)</label>
-                            <input type="file" multiple class="span6 fileinput" id="imagem" name="fotousuario">				
+                        <input type="file" multiple class="span6 fileinput" id="imagem" name="fotousuario">				
                     </div> <!-- /control-group -->
-                    
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

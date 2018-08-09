@@ -22,24 +22,34 @@
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorias</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownId">
                         <?php
-                                $ctrl_cat = new CtrlCategoria();
-                                $dados_cat = $ctrl_cat->listarCategorias();
-                                
-                                foreach ($dados_cat as $key => $value) {
-                                    echo "<a class='dropdown-item' href='index.php?cat=".$dados_cat[$key]['idCategoria']."'>".$dados_cat[$key]['nome']."</a>";
-                                }
-                            ?>
+                        $ctrl_cat = new CtrlCategoria();
+                        $dados_cat = $ctrl_cat->listarCategorias();
+
+                        foreach ($dados_cat as $key => $value) {
+                            echo "<a class='dropdown-item' href='index.php?cat=" . $dados_cat[$key]['idCategoria'] . "'>" . $dados_cat[$key]['nome'] . "</a>";
+                        }
+                        ?>
                     </div>
                 </li>
             </ul>
-            
-            <?php
-                if(isset($_SESSION['login'])){
+
+            <ul class="navbar-nav ml-auto my-auto mt-lg-0">
+                <li class="my-auto">
+                    <form id="busca" method="get">
+                        <div class="container1">
+                            <input type="text" class="input" name="busca" placeholder="Pesquisar">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </form>
+                </li>
+                <?php
+                if (isset($_SESSION['login'])) {
                     include_once 'views/index/menulogado.php';
                 } else {
                     include_once 'views/index/menupadrao.php';
                 }
-            ?>
+                ?>
+            </ul>    
         </div>
     </div>
 </nav>
@@ -99,9 +109,9 @@
 
                     <div class="form-group">											
                         <label class="mr-3">Foto de Perfil(Opcional até 400x400)</label>
-                            <input type="file" multiple class="span6 fileinput" id="imagem" name="fotousuario">				
+                        <input type="file" multiple class="span6 fileinput" id="imagem" name="fotousuario">				
                     </div> <!-- /control-group -->
-                    
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -123,11 +133,13 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label class="mr-3">Foto Atual</label>
-                        <img src="<?php if (FOTOUSUARIO == "") {
-                                echo $path_foto . "embranco.png";
-                            } else {
-                                echo $path_foto . FOTOUSUARIO;
-                            } ?>" style="width: 90px; height: 90px;"/>
+                        <img src="<?php
+                        if (FOTOUSUARIO == "") {
+                            echo $path_foto . "embranco.png";
+                        } else {
+                            echo $path_foto . FOTOUSUARIO;
+                        }
+                        ?>" style="width: 90px; height: 90px;"/>
                     </div>
 
                     <div class="form-group">											

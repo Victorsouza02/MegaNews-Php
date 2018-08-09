@@ -57,6 +57,12 @@ class CtrlPostagem {
         return $result;
     }
     
+    public function buscaPorTitulo($inicio,$max_por_pag,$titulo) {
+        $dao = new PostagemDao();
+        $result = $dao->postagemPorTitulo($inicio, $max_por_pag, $titulo);
+        return $result;
+    }
+    
     public function buscar($dados){
         $dao = new PostagemDao();
         $result = $dao->buscar($dados);
