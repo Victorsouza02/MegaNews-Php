@@ -1,4 +1,3 @@
- 
 
 <?php
 $caminho = "upload/postagens/";
@@ -15,7 +14,7 @@ $inicio = $inicio * $max_por_pag;
 $ctrl_posts = new CtrlPostagem();
 $ctrl_user = new CtrlUsuario();
 $total_posts = $ctrl_posts->listarPostagens();
-$posts = $ctrl_posts->postagemPorCategoria($inicio, $max_por_pag, $_GET['cat']);
+$posts = $ctrl_posts->paginacaoPostagem($inicio, $max_por_pag);
 $total_postagens = 0;
 
 foreach ($total_posts as $key) {
@@ -45,14 +44,14 @@ foreach ($posts as $key => $value) {
                     <h3 class="h3-responsive">' . $titulo . '</h3>
                 </div>
             </div>
-
+            <hr class="my-1">
             <div class="row" id="descricao">
                 <div class="col-md-12 text-center">
                     <p>' . $descricao . '</p>
-                    <a href="index.php?acao=postagem&idpost='.$idpost.'#postagem">Leia a notícia completa</a>
+                    <a href="index.php?post='.$idpost.'#postagem">Leia a notícia completa</a>
                 </div>
             </div>
-
+            <hr class="my-1">
             <div class="row mt-2" id="autor">
                 <div class="col-md-6 text-center">
                     <p>Autor : ' . $autor . '</p>
@@ -62,7 +61,7 @@ foreach ($posts as $key => $value) {
                     <p>Data de Publicação : ' . $data . '</p>
                 </div>
             </div>
-
+            
             <div class="row mt-2" id="categoria">
                 <div class="col-md-12 text-center">
                     <p>Categoria : <a href="index.php?cat='.$idcategoria.'"> '.$nomecategoria.' </a> </p>
@@ -87,4 +86,7 @@ if ($pc < $total_paginas) {
 }
 echo "</div>";
 ?>
+
+
+
 

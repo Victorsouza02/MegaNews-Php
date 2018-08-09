@@ -1,45 +1,24 @@
 <?php
-session_start();
-include_once 'views/index/header.html';
+session_start(); // SESSÃO
+// CONTROLLERS
 include_once 'controller/CtrlUsuario.php';
 include_once 'controller/CtrlGrupo.php';
 include_once 'controller/CtrlPostagem.php';
 include_once 'controller/CtrlCategoria.php';
+
+// VISUAL
+include_once 'views/index/header.html';
 include_once 'include/funcoesGerais/verificarSessaoIndex.php';
 include_once 'views/index/topo.php';
+
 ?>
 
 <!-- SLIDES -->
 <section id="slides" class="corsecaoslides">
     <div class="container-fluid pb-3">
         <div class="row">
-            <div class="offset-md-1 col-md-6">
-                <!-- #################### INICIO CAROUSEL ################## -->
-                <div id="carousel-example-2" class="carousel slide carousel-fade mt-3" style="width: 100%;max-height: 550px;"data-ride="carousel">
-                    <?php include_once 'views/index/slidesconteudo.php' ?>
-                    <!--/.Slides-->
-                    <!--Controls-->
-                    <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                    <!--/.Controls-->
-                </div>
-                <!-- FIM COLUNA ULTIMAS NOTICIAS -->
-            </div>
-
-            <div class="col-md-3 col-md-offset-right-2 mt-3 d-none d-md-block" id="maisacessadas">
-                <!-- #################### INICIO CAROUSEL ################## -->
-                <div class="row">
-                    <?php include_once 'views/index/maisacessadas.php'; ?>
-                </div>
-                <!-- FIM COLUNA ULTIMAS NOTICIAS -->
-            </div>
-            <!-- FIM LINHA -->
+            <?php include_once 'views/index/slides.php';?>
+            <?php include_once 'views/index/maisacessadas.php';?>            
         </div>
     </div>
 </section>
