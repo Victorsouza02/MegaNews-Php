@@ -10,6 +10,11 @@ body {
     src: local('bitfont.ttf'), url('fonts/bitfont.ttf');
 }
 
+@font-face {
+    font-family: oswald-medium;
+    src: local('Oswald-Medium.ttf'), url('fonts/Oswald/Oswald-Medium.ttf');
+}
+
 #fotos_topo {
     display: block!important;
 }
@@ -121,7 +126,7 @@ input::placeholder {
     background-color: rgba(0,0,0,0.7);
     padding: 10px;
     word-wrap: break-word;
-    font-family: bitfont;
+    font-family: oswald-medium;
 }
 
 
@@ -133,12 +138,28 @@ input::placeholder {
 }
 
 #maisacessadas h5 {
-    font-family: bitfont;
+    font-family: oswald-medium;
 }
 
 /* POSTAGENS */
-#postagens h1 , #postagens h3 {
-    font-family: bitfont;
+
+.icone_visualizacao {
+    position: absolute;
+    bottom : -10px;
+    right : 5px;
+}
+.icone_comentarios {
+    position: absolute;
+    bottom : -10px;
+    right : 70px;
+}
+
+#postagens h1 {
+    font-family: oswald-medium;
+}
+
+#postagens h3 {
+    font-family: oswald-medium;
 }
 #postagens {
     margin-top: 20px;

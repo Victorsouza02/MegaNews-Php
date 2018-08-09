@@ -1,5 +1,6 @@
  
 <?php
+
 $caminho = "upload/postagens/";
 $max_por_pag = 3;
 
@@ -20,13 +21,17 @@ foreach ($posts as $key) {
     $total_postagens++;
 }
 
- echo '<h1 class="text-center">Resultados da Pesquisa('.$total_postagens.')</h1>';
- 
+echo '<h1 class="text-center">Resultados da Pesquisa(' . $total_postagens . ')</h1>';
+
 foreach ($posts as $key => $value) {
     $idpost = $posts[$key]['idPostagem'];
     $foto = $caminho . $posts[$key]['foto'];
     $titulo = $posts[$key]['titulo'];
     
+    $url_json = "https://graph.facebook.com/?ids=http://victorsouza02php.orgfree.com/index.php?post=".$idpost."";
+    $dados = file_get_contents($url_json,0,null,null);
+    $cont_comentarios = json_decode($dados , true);
+
     $ctrlcat = new CtrlCategoria();
     $idcategoria = $posts[$key]['idCategoria'];
     $nomecategoria = $ctrlcat->obterNomeCat($posts[$key]['idCategoria']);
@@ -34,7 +39,7 @@ foreach ($posts as $key => $value) {
     $dadosautor = $ctrl_user->dadosUsuarioById($posts[$key]['idUsuario']);
     $autor = $dadosautor['login'];
     $data = $posts[$key]['data'];
-    
+
     echo '<div class="row mt-3  formapostagem py-3"> <!-- POST INDIVIDUAL -->
         <div class="col-md-4 col-sm-12 " align="center">
             <img src="' . $foto . '" class="mx-auto img-fluid" alt="" >
@@ -49,7 +54,7 @@ foreach ($posts as $key => $value) {
             <div class="row" id="descricao">
                 <div class="col-md-12 text-center">
                     <p>' . $descricao . '</p>
-                    <a href="index.php?post='.$idpost.'#postagem">Leia a notícia completa</a>
+                    <a href="index.php?post=' . $idpost . '#postagem">Leia a notícia completa</a>
                 </div>
             </div>
 
@@ -65,8 +70,15 @@ foreach ($posts as $key => $value) {
 
             <div class="row mt-2" id="categoria">
                 <div class="col-md-12 text-center">
-                    <p>Categoria : <a href="index.php?cat='.$idcategoria.'"> '.$nomecategoria.' </a> </p>
+                    <p>Categoria : <a href="index.php?cat=' . $idcategoria . '"> ' . $nomecategoria . ' </a> </p>
                 </div>
+            </div>
+            
+            <div class="icone_comentarios">
+                 <i class="fas fa-comment"></i><span class="px-1">'.$cont_comentarios["http://victorsouza02php.orgfree.com/index.php?post=".$idpost.""]["share"]["comment_count"].'</span>
+            </div>
+            <div class="icone_visualizacao">
+                <i class="fas fa-eye"></i><span class="px-1">' . $posts[$key]['contagem'] . '</span>
             </div>
         </div>
     </div> <!-- POST INDIVIDUAL --> ';

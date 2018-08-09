@@ -25,7 +25,12 @@ foreach ($posts as $key => $value) {
     $idpost = $posts[$key]['idPostagem'];
     $foto = $caminho . $posts[$key]['foto'];
     $titulo = $posts[$key]['titulo'];
+    $url_json = "https://graph.facebook.com/?ids=http://victorsouza02php.orgfree.com/index.php?post=".$idpost."";
+    $dados = file_get_contents($url_json,0,null,null);
+    $cont_comentarios = json_decode($dados , true);
     
+    
+   
     $ctrlcat = new CtrlCategoria();
     $idcategoria = $posts[$key]['idCategoria'];
     $nomecategoria = $ctrlcat->obterNomeCat($posts[$key]['idCategoria']);
@@ -66,6 +71,13 @@ foreach ($posts as $key => $value) {
                 <div class="col-md-12 text-center">
                     <p>Categoria : <a href="index.php?cat='.$idcategoria.'"> '.$nomecategoria.' </a> </p>
                 </div>
+                
+            </div>
+            <div class="icone_comentarios">
+                <i class="fas fa-comment"></i><span class="px-1">'.$cont_comentarios["http://victorsouza02php.orgfree.com/index.php?post=".$idpost.""]["share"]["comment_count"].'</span>
+            </div>
+            <div class="icone_visualizacao">
+                <i class="fas fa-eye"></i><span class="px-1">' . $posts[$key]['contagem'] . '</span>
             </div>
         </div>
     </div> <!-- POST INDIVIDUAL --> ';

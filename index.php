@@ -29,7 +29,7 @@ include_once 'views/index/topo.php';
     <div class="container" style="max-width: 1540px!important">
         <div class="row">
             <div class="col-md-9 ">
-                <?php include_once 'include/funcoesGerais/verificarSecaoPostagem.php'; ?>
+                <?php include_once 'include/funcoesGerais/verificarSecaoPostagem.php'; ?> 
             </div>
 
             <div class="col-md-3 text-center d-none d-md-block">
