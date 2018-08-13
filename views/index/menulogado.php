@@ -1,5 +1,4 @@
-<?php include_once 'include/funcoesUsuario/alterarfoto.php'; ?>
-
+<?php $path_foto = "upload/foto_perfil/"; ?>
 <li class="nav-item dropdown my-auto">
     <form class="form-inline">
         <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

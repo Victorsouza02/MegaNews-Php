@@ -18,12 +18,7 @@ if (isset($_POST['alterarfoto'])) {
         
         echo '<script>window.location.href = "index.php";</script>';
     } else {
-        echo '<div class = "alert alert-danger">
-            <button type = "button" class = "close" data-dismiss = "alert">&times;
-            </button>
-            <strong>ERRO!</strong> <br>
-            '.$resposta_foto.'
-            </div>';
+        echo "<script>alertify.alert('ERRO AO ALTERAR FOTO','$resposta_foto');</script>";
     }
 }
 ?>
