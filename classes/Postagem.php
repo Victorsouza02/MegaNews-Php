@@ -12,8 +12,6 @@ class Postagem {
     private $categoria;
     private $foto;
     private $file_foto;
-    
-    
 
     function validarCampos() {
         $erros = array();
@@ -40,45 +38,47 @@ class Postagem {
         return $msg;
     }
 
-    public function verificarEdicao($dados_atuais, $foto) {
-        $erros_array = array();
-        $msg = "";
+    public function verificarEdicao($nome_fa, $foto) {
+        $erros = "";
         if ($this->titulo == '') {
-            $this->titulo = $dados_atuais['titulo'];
+            $erros .= "O campo TITULO está em branco";
+        }
+
+        if ($this->descricao == '') {
+            $erros .= "O campo DESCRICAO está em branco";
+        }
+
+        if ($this->conteudo == '') {
+            $erros .= "O campo CONTEUDO está em branco";
         }
 
         if (empty($foto["name"])) {
-            $this->foto = $dados_atuais['foto'];
+            $this->foto = $nome_fa;
         } else {
             $largura = 1280;
             $altura = 720;
             $tamanho = 500000;
 
             if (!preg_match("/^image\/(pjpeg|jpeg|png|gif|bmp)$/", $foto["type"])) { // Verifica se é uma extensão de imagem --válida.
-                $erros_array[0] = "Isso não é uma imagem<br>";
+                $erros = "Isso não é uma imagem<br>";
             }
 
             $dimensoes = getimagesize($foto["tmp_name"]); // Pega as dimensões da imagem
 
             if ($dimensoes[0] > $largura) { // Verifica se a largura da imagem é maior que a largura permitida 
-                $erros_array[1] = "A largura da imagem não deve ultrapassar " . $largura . " pixels<br>";
+                $erros .= "A largura da imagem não deve ultrapassar " . $largura . " pixels<br>";
             }
 
             if ($dimensoes[1] > $altura) { // Verifica se a altura da imagem é maior que a altura permitida 
-                $erros_array[2] = "Altura da imagem não deve ultrapassar " . $altura . " pixels<br>";
+                $erros .= "Altura da imagem não deve ultrapassar " . $altura . " pixels<br>";
             }
 
             if ($foto["size"] > $tamanho) {
-                $erros_array[3] = "A imagem deve ter no máximo " . $tamanho . " bytes<br>";
+                $erros .= "A imagem deve ter no máximo " . $tamanho . " bytes<br>";
             } // Verifica se o tamanho da imagem é maior que o tamanho permitido 
 
-            foreach ($erros_array as $key => $value) {
-                if ($erros_array[$key] != "") {
-                    $msg .= $erros_array[$key];
-                }
-            }
-
-            if ($msg == "") {
+            if ($erros == "") {
+                unlink("../upload/postagens/$nome_fa");
                 preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $foto["name"], $ext); // Pega extensão da imagem 
                 $nome_imagem = md5(uniqid(time())) . "." . $ext[1]; // Gera um nome único para a imagem 
                 $caminho_imagem = "../upload/postagens/" . $nome_imagem; // Caminho de onde ficará a imagem 
@@ -87,15 +87,7 @@ class Postagem {
             }
         }
 
-        if ($this->descricao == '') {
-            $this->descricao = $dados_atuais['descricao'];
-        }
-
-        if ($this->conteudo == '') {
-            $this->conteudo = $dados_atuais['texto'];
-        }
-
-        return $msg;
+        return $erros;
     }
 
     function validarFoto($foto) {
@@ -153,7 +145,7 @@ class Postagem {
         $this->categoria = $categoria;
     }
 
-        function getFile_foto() {
+    function getFile_foto() {
         return $this->file_foto;
     }
 

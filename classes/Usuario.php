@@ -87,7 +87,6 @@ class Usuario {
 
     public function verificarLogin() {
         $erros = "";
-
         if ($this->login == '') {
             $erros .= "O campo login está vazio.<br>";
         }
@@ -97,24 +96,22 @@ class Usuario {
         return $erros;
     }
 
-    public function verificarEdicao($dados_atuais) {
-        $erros = 0;
+    public function verificarEdicao() {
+        $erros = "";
+
         if ($this->nome == '') {
-            $this->nome = $dados_atuais['nome'];
+            $erros .= "O campo NOME está vazio<br>";
         }
         if ($this->login == '') {
-            $this->login = $dados_atuais['login'];
+            $erros .= "O campo LOGIN está vazio<br>";
         }
         if ($this->senha == '') {
-            $this->senha = $dados_atuais['senha'];
+            $erros .= "O campo SENHA está vazio<br>";
         } else if (strlen($this->senha) < 8) {
-            $erros++;
+            $erros .= "A SENHA é muito curta (Min 8 caracteres)<br>";
         }
-        if (!($erros > 0)) {
-            return true;
-        } else {
-            return false;
-        }
+        
+        return $erros;
     }
 
     function getFoto() {

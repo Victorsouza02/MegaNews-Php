@@ -4,7 +4,7 @@ if(NIVELACESSO >= 1){
 $ctrlpostagem_editar = new CtrlPostagem();
 $dadospost_atual = $ctrlpostagem_editar->dadosPostagemById($_GET['id']);
 $titulo_atual = $dadospost_atual["titulo"];
-$foto_atual = $dadospost_atual["foto"];
+$nome_foto_atual = $dadospost_atual["foto"];
 $descricao_atual = $dadospost_atual["descricao"];
 $texto_atual = $dadospost_atual["texto"];
 $caminho_img = "../upload/postagens/";
@@ -18,7 +18,7 @@ if(isset($_POST['editarpostagem'])){
     $post_model->setExibir($_POST['exibir']);
     $post_model->setCategoria($_POST['categoria']);
     $post_model->setConteudo($_POST['texto']);
-    $res_post_edit = $post_model->verificarEdicao($dadospost_atual, $_FILES['foto']);
+    $res_post_edit = $post_model->verificarEdicao($nome_foto_atual, $_FILES['foto']);
     
     if($res_post_edit == ""){
         $ctrl_post_edit = new CtrlPostagem();

@@ -136,10 +136,10 @@ class UsuarioDao {
     }
 
     public function buscar($dados) {
-        $sql = "SELECT * from usuario WHERE nome LIKE ?";
+        $sql = "SELECT * from usuario WHERE login LIKE ?";
         $conectar = $this->conexao->getCon();
         $listarUsuarios = $conectar->prepare($sql);
-        $listarUsuarios->execute(array("%$dados%"));
+        $listarUsuarios->execute(array("$dados%"));
         $usuarios = $listarUsuarios->fetchAll();
         return $usuarios;
     }

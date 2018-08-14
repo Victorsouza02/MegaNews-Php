@@ -10,9 +10,7 @@ if (!(NIVELACESSO >= 2)) { //SE O NIVEL DE ACESSO NÃO FOR MAIOR OU IGUAL A 2
         <div class="card">
             <div class="card-header">
                 <strong>Editar Usuário</strong>
-                <?php
-                include_once '../include/funcoesAdmin/editarUsuario.php';
-                ?>
+                <?php include_once '../include/funcoesAdmin/editarUsuario.php';?>
             </div>
             <div class="card-body card-block">       
                 <div class="row form-group">
@@ -20,7 +18,7 @@ if (!(NIVELACESSO >= 2)) { //SE O NIVEL DE ACESSO NÃO FOR MAIOR OU IGUAL A 2
                         <label for="nome" class=" form-control-label">Nome</label>
                     </div>
                     <div class="col-12 col-md-9">
-                        <input type="text" id="nome" name="edit_nome" placeholder="<?php echo $nomeedit ?>" class="form-control">
+                        <input type="text" id="nome" name="edit_nome" value="<?=$nomeedit?>" class="form-control">
                         <small class="form-text text-muted">Digite aqui o novo nome do usuário</small>
                     </div>
                 </div>
@@ -30,7 +28,7 @@ if (!(NIVELACESSO >= 2)) { //SE O NIVEL DE ACESSO NÃO FOR MAIOR OU IGUAL A 2
                         <label for="login" class=" form-control-label">Login</label>
                     </div>
                     <div class="col-12 col-md-9">
-                        <input type="text" id="login" name="edit_login" placeholder="<?php echo $loginedit ?>" class="form-control">
+                        <input type="text" id="login" name="edit_login" value="<?=$loginedit?>" class="form-control">
                         <small class="form-text text-muted">Digite aqui o novo Login do usuário</small>
                     </div>
                 </div>
@@ -40,7 +38,7 @@ if (!(NIVELACESSO >= 2)) { //SE O NIVEL DE ACESSO NÃO FOR MAIOR OU IGUAL A 2
                         <label for="senha" class=" form-control-label">Senha</label>
                     </div>
                     <div class="col-12 col-md-9">
-                        <input type="password" id="senha" name="edit_pws" placeholder="<?php echo $senhaedit ?>" class="form-control">
+                        <input type="password" id="senha" name="edit_pws" value="<?=$senhaedit?>" class="form-control">
                         <small class="form-text text-muted">Digite aqui a nova senha do Usuário</small>
                     </div>
                 </div>
@@ -60,8 +58,6 @@ if (!(NIVELACESSO >= 2)) { //SE O NIVEL DE ACESSO NÃO FOR MAIOR OU IGUAL A 2
                 </div>';
                 }
                 ?>
-
-
             </div>
             <div class="card-footer">
                 <input type="submit" name="botaoeditar" class="btn btn-primary btn-sm" value="Editar"/>

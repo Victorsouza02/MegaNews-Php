@@ -7,7 +7,6 @@ if (isset($_POST['alterarfoto'])) {
     $resposta_foto = $user->validarFoto($foto);
 
     if ($resposta_foto == "") {
-    
         if (FOTOUSUARIO != "") {
             unlink($path_foto.FOTOUSUARIO);
         }
