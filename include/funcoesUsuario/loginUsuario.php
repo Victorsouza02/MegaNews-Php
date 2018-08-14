@@ -25,7 +25,6 @@ if (isset($_POST['botao'])) {
             $sessao->abrirSessao();
             
             include_once 'include/constantes.php';
-
             echo '<script>alertify.alert("Login Realizado","Login feito com sucesso")</script>';
 
         } else {

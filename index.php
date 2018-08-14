@@ -5,11 +5,11 @@ include_once 'controller/CtrlUsuario.php';
 include_once 'controller/CtrlGrupo.php';
 include_once 'controller/CtrlPostagem.php';
 include_once 'controller/CtrlCategoria.php';
-// CARREGAR FUNÇÕES DO USUARIO
-include_once 'include/funcoesGerais/carregarFuncoes.php';
-// VISUAL
+// VISUAL e FUNÇÕES
 include_once 'views/header.html';
+include_once 'include/funcoesGerais/carregarFuncoes.php';
 include_once 'views/topo.php';
+
 ?>
 
 <!-- SLIDES -->
