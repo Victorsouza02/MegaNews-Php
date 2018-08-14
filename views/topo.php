@@ -44,9 +44,9 @@
                 </li>
                 <?php
                 if (isset($_SESSION['login'])) {
-                    include_once 'views/index/menulogado.php';
+                    include_once 'views/menulogado.php';
                 } else {
-                    include_once 'views/index/menupadrao.php';
+                    include_once 'views/menupadrao.php';
                 }
                 ?>
             </ul>    

@@ -5,21 +5,19 @@ include_once 'controller/CtrlUsuario.php';
 include_once 'controller/CtrlGrupo.php';
 include_once 'controller/CtrlPostagem.php';
 include_once 'controller/CtrlCategoria.php';
-
+// CARREGAR FUNÇÕES DO USUARIO
+include_once 'include/funcoesGerais/carregarFuncoes.php';
 // VISUAL
-include_once 'views/index/header.html';
-include_once 'include/funcoesGerais/verificarSessaoIndex.php';
-include_once 'views/index/topo.php';
-
+include_once 'views/header.html';
+include_once 'views/topo.php';
 ?>
-
 
 <!-- SLIDES -->
 <section id="slides" class="corsecaoslides">
     <div class="container-fluid pb-3">
         <div class="row">
-            <?php include_once 'views/index/slides.php';?>
-            <?php include_once 'views/index/maisacessadas.php';?>            
+            <?php include_once 'views/slides.php';?>
+            <?php include_once 'views/maisacessadas.php';?>            
         </div>
     </div>
 </section>
@@ -30,7 +28,7 @@ include_once 'views/index/topo.php';
     <div class="container" style="max-width: 1540px!important">
         <div class="row">
             <div class="col-md-9 ">
-                <?php include_once 'include/funcoesGerais/verificarSecaoPostagem.php'; ?> 
+                <?php include_once 'views/postagem.php'; ?> 
             </div>
 
             <div class="col-md-3 text-center d-none d-md-block">
@@ -43,4 +41,4 @@ include_once 'views/index/topo.php';
 
 <!-- FIM POSTAGENS -->    
 
-<?php include_once 'views/index/footer.html'; ?>
+<?php include_once 'views/footer.html'; ?>
