@@ -16,7 +16,7 @@ class Conexao {
     
     public function __construct() {
         try{
-        $this->con = new PDO("mysql:host=$this->caminho;dbname=$this->banco", "$this->usuario" , "$this->senha");
+        $this->con = new PDO("mysql:host=$this->caminho;dbname=$this->banco; charset=utf8", "$this->usuario" , "$this->senha");
         $this->con ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $ex){
             echo "Erro: ".$ex->getMessage();
