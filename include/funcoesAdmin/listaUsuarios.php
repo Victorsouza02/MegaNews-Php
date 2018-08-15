@@ -28,7 +28,7 @@ if (isset($_POST['botaobusca'])) {
 
             if (NIVELACESSO > $nivel_alvo_user || $_SESSION['idUsuario'] == $idUsuario) {
                 echo "<td class='td-actions'> <a href='home.php?acao=editar-usuario&id=$idUsuario' class='mx-1 btn btn-success btn-sm'><i class='btn-icon-only fa fa-edit'> </i></a>";
-                echo "<a id='btn-deluser' href='home.php?acao=ver-usuarios&delete=$idUsuario' class='mx-1 btn btn-danger btn-sm'><i class='btn-icon-only fa fa-eraser'> </i></a></td>";
+                echo "<a href='home.php?acao=ver-usuarios&delete=$idUsuario' class='btn-deluser mx-1 btn btn-danger btn-sm'><i class='btn-icon-only fa fa-eraser'> </i></a></td>";
             } else {
                 echo "<td>Nenhuma</td>";
             }
@@ -61,7 +61,7 @@ if (isset($_POST['botaobusca'])) {
 
             if (NIVELACESSO > $nivel_alvo_user || $_SESSION['idUsuario'] == $idUsuario) {
                 echo "<td class='td-actions'> <a href='home.php?acao=editar-usuario&id=$idUsuario' class='mx-1 btn btn-success btn-sm'><i class='btn-icon-only fa fa-edit'> </i></a>";
-                echo "<a id='btn-deluser' href='home.php?acao=ver-usuarios&delete=$idUsuario' class='mx-1 btn btn-danger btn-sm'><i class='btn-icon-only fa fa-eraser'> </i></a></td>";
+                echo "<a href='home.php?acao=ver-usuarios&delete=$idUsuario' class='btn-deluser mx-1 btn btn-danger btn-sm'><i class='btn-icon-only fa fa-eraser'> </i></a></td>";
             } else {
                 echo "<td>Nenhuma</td>";
             }

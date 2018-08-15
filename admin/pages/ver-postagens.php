@@ -128,7 +128,7 @@ $caminho_foto = "../upload/postagens/";
         </div>
     </form>
     <!-- Modal DELETAR CATEGORIA -->
-    <form id="form-delcat" method="post" role="form" autocomplete="off">
+    <form id="delcat" method="post" role="form" autocomplete="off">
         <div class="modal fade" id="delcategoria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -157,7 +157,7 @@ $caminho_foto = "../upload/postagens/";
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-danger" id="btn-delcat" name="botaodelcat" > Deletar </button>
+                        <button type="submit" class="btn btn-danger" id="btn-delcat" name="botaodelcat" > Deletar </button>
                     </div>
                 </div>
             </div>

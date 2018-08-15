@@ -29,7 +29,7 @@ class CategoriaDao {
             $sql = "DELETE FROM categoria WHERE idCategoria =:idCat";
             $conectar = $this->conexao->getCon();
             $deletar = $conectar->prepare($sql);
-            $deletar->bindParam(":idCat", $idCat);
+            $deletar->bindParam(":idCat", $idCat , PDO::PARAM_INT);
             $deletar->execute();
             return true;
         } catch (PDOException $ex) {

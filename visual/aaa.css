@@ -204,12 +204,24 @@ input::placeholder {
     min-height: auto;
 }
 
+/* SECAO TOP  */
+.formatop {
+    margin-left: 10px;
+    border-radius: 5px;
+    background-color: #f4f4f4;
+    border-top: 1px solid #e7e7e7;
+    border-left: 1px solid #e7e7e7;
+    border-right: 1px solid #e7e7e7;
+    box-shadow: 0px 7px 4px #aaaaaa;
+}
 
-
+#ultimoslanc div p {
+    font-size: 20px;
+    font-family: oswald-medium;
+}
 
 /* RODAPE */
 #rodape {
-    margin-top : 20px;
     min-height: 100px;
     background-color: #1a1a1a;
 }
@@ -222,6 +234,21 @@ input::placeholder {
     text-align: right;
     color:#fff;
 }
+
+/* SEÇÃO VIDEOS */
+
+.secaovideos{
+    
+    
+}
+
+.secaovideos {
+    margin-top: 20px;
+    background-color: #2859cd;
+    font-family: oswald-medium;
+    color:#fff;
+}
+
 
 
 
