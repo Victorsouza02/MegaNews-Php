@@ -56,6 +56,12 @@ if (isset($_GET['acao'])) {
     if ($acao == "editar-postagem") {
         include_once 'pages/editar-postagem.php';
     };
+    if ($acao == "videos") {
+        include_once 'pages/videos.php';
+    };
+    if ($acao == "lancamentos") {
+        include_once 'pages/ultimoslanc.php';
+    };
 } else {
     include_once 'pages/inicio.php';
 }

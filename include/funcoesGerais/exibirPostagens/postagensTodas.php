@@ -39,7 +39,7 @@ foreach ($posts as $key => $value) {
     $autor = $dadosautor['login'];
     $data = $posts[$key]['data'];
 
-    echo '<div class="row mt-3  formapostagem py-3"> <!-- POST INDIVIDUAL -->
+    echo '<div class="row mt-3 formapostagem py-3"> <!-- POST INDIVIDUAL -->
         <div class="col-md-4 col-sm-12 " align="center">
             <img src="' . $foto . '" class="mx-auto img-fluid" alt="" >
         </div>
@@ -63,7 +63,7 @@ foreach ($posts as $key => $value) {
                 </div>
 
                 <div class="col-md-6 text-center">
-                    <p>Data de Publicação : ' . $data . '</p>
+                    <p>Data de Publicação : ' . date('d/m/Y', strtotime($data)) . '</p>
                 </div>
             </div>
             

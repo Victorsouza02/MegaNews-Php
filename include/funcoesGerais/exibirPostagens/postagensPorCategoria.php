@@ -64,7 +64,7 @@ foreach ($posts as $key => $value) {
                 </div>
 
                 <div class="col-md-6 text-center">
-                    <p>Data de Publicação : ' . $data . '</p>
+                    <p>Data de Publicação : ' . date('d/m/Y', strtotime($data)) . '</p>
                 </div>
             </div>
 

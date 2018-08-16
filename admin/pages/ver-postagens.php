@@ -11,6 +11,8 @@ $caminho_foto = "../upload/postagens/";
                 <a href="home.php?acao=cad-postagem" class="ml-2"><button type="button" class="btn btn-success my-2">Nova Postagem</button></a>
                 <a href="#" data-toggle="modal" data-target="#cadcategoria"class="ml-2"><button type="button" class="btn btn-success my-2">Nova Categoria</button></a>
                 <a href="#" data-toggle="modal" data-target="#delcategoria"class="ml-2"><button type="button" class="btn btn-danger my-2">Deletar Categoria</button></a>
+                <a href="home.php?acao=videos" class="ml-2"><button type="button" class="btn btn-info my-2">Videos</button></a>
+                <a href="home.php?acao=lancamentos" class="ml-2"><button type="button" class="btn btn-info my-2">Ultimos Lançamentos</button></a>
                 <form action="" method="post" class="form-horizontal">
                     <div class="row form-group">
                         <div class="col col-md-6 ml-2">

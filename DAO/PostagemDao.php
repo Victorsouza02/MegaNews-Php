@@ -66,6 +66,37 @@ class PostagemDao {
             return false;
         }
     }
+    public function editarVideo($titulo , $url , $id) {
+        try {
+            $sql = "UPDATE videos SET nome= :titulo,url = :url WHERE idVideo = :id";
+            $conectar = $this->conexao->getCon();
+            /* @var $conectar PDO */
+            $editar = $conectar->prepare($sql);
+            $editar->bindParam(":titulo", $titulo);
+            $editar->bindParam(":url", $url);
+            $editar->bindParam(":id", $id);
+            $editar->execute();
+            return true;
+        } catch (PDOException $ex) {
+            return false;
+        }
+    }
+    
+    public function editarLancamento($titulo , $data , $id) {
+        try {
+            $sql = "UPDATE lancamentos SET nome= :titulo,data = :data WHERE idLanc = :id";
+            $conectar = $this->conexao->getCon();
+            /* @var $conectar PDO */
+            $editar = $conectar->prepare($sql);
+            $editar->bindParam(":titulo", $titulo);
+            $editar->bindParam(":data", $data);
+            $editar->bindParam(":id", $id);
+            $editar->execute();
+            return true;
+        } catch (PDOException $ex) {
+            return false;
+        }
+    }
 
     public function deletar($idPostagem) {
         try {
@@ -125,6 +156,24 @@ class PostagemDao {
         $listarPostagens->execute();
         $postagens = $listarPostagens->fetchAll();
         return $postagens;
+    }
+    
+    public function listarVideos() {
+        $sql = "SELECT * from videos";
+        $conectar = $this->conexao->getCon();
+        $listarVideos = $conectar->prepare($sql);
+        $listarVideos->execute();
+        $videos = $listarVideos->fetchAll();
+        return $videos;
+    }
+    
+    public function listarLancamentos() {
+        $sql = "SELECT * from lancamentos";
+        $conectar = $this->conexao->getCon();
+        $listarLanc = $conectar->prepare($sql);
+        $listarLanc->execute();
+        $lanc = $listarLanc->fetchAll();
+        return $lanc;
     }
 
     public function numPostagens() {

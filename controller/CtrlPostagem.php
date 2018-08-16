@@ -44,6 +44,28 @@ class CtrlPostagem {
         return $result;
     }
     
+    public function listarVideos(){
+        $dao = new PostagemDao();
+        $result =$dao->listarVideos();
+        return $result;
+    }
+    
+    public function listarLancamentos(){
+        $dao = new PostagemDao();
+        $result =$dao->listarLancamentos();
+        return $result;
+    }
+    
+    public function editarVideo($titulo , $url , $id){
+        $dao = new PostagemDao();
+        $dao->editarVideo($titulo, $url, $id);
+    }
+    
+    public function editarLancamento($titulo , $data , $id){
+        $dao = new PostagemDao();
+        $dao->editarLancamento($titulo, $data, $id);
+    }
+    
     
     public function paginacaoPostagem($inicio,$max_por_pag) {
         $dao = new PostagemDao();
