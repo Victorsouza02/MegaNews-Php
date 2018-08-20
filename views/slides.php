@@ -1,4 +1,4 @@
-<div class="offset-md-1 col-md-6">
+<div class="offset-lg-1 col-lg-6">
     <!-- #################### INICIO CAROUSEL ################## -->
     <div id="carousel-example-2" class="carousel slide carousel-fade mt-3" style="width: 100%;max-height: 550px;"data-ride="carousel">
         <?php include_once 'include/funcoesGerais/exibirSlides.php' ?>

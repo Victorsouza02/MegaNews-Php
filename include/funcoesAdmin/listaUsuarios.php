@@ -18,19 +18,14 @@ if (isset($_POST['botaobusca'])) {
             echo "<th>$idUsuario</th>";
             echo "<td>" . $lista[$i]['nome'] . "</td>";
             echo "<td>" . $lista[$i]['login'] . "</td>";
-            if (NIVELACESSO > $nivel_alvo_user || $_SESSION['idUsuario'] == $idUsuario) {
-                echo "<td>" . $lista[$i]['senha'] . "</td>";
-            } else {
-                echo "<td>Não Disponível</td>";
-            }
             echo "<td><img src='" . $foto . "' style='width:50px; height:50px;'/></td>";
             echo "<td>" . $nomegrupo . "</td>";
 
             if (NIVELACESSO > $nivel_alvo_user || $_SESSION['idUsuario'] == $idUsuario) {
-                echo "<td class='td-actions'> <a href='home.php?acao=editar-usuario&id=$idUsuario' class='mx-1 btn btn-success btn-sm'><i class='btn-icon-only fa fa-edit'> </i></a>";
+                echo "<td class='td-actions text-left'> <a href='home.php?acao=editar-usuario&id=$idUsuario' class='mx-1 btn btn-success btn-sm'><i class='btn-icon-only fa fa-edit'> </i></a>";
                 echo "<a href='home.php?acao=ver-usuarios&delete=$idUsuario' class='btn-deluser mx-1 btn btn-danger btn-sm'><i class='btn-icon-only fa fa-eraser'> </i></a></td>";
             } else {
-                echo "<td>Nenhuma</td>";
+                echo "<td class='text-left'>Nenhuma</td>";
             }
             echo "</tr>";
         }
@@ -50,20 +45,14 @@ if (isset($_POST['botaobusca'])) {
             echo "<th>$idUsuario</th>";
             echo "<td>" . $lista[$i]['nome'] . "</td>";
             echo "<td>" . $lista[$i]['login'] . "</td>";
-            if (NIVELACESSO > $nivel_alvo_user || $_SESSION['idUsuario'] == $idUsuario) {
-                echo "<td>" . $lista[$i]['senha'] . "</td>";
-            } else {
-                echo "<td>Não Disponível</td>";
-            }
-
             echo "<td><img src='" . $foto . "' style='width:50px; height:50px;'/></td>";
             echo "<td>" . $nomegrupo . "</td>";
 
             if (NIVELACESSO > $nivel_alvo_user || $_SESSION['idUsuario'] == $idUsuario) {
-                echo "<td class='td-actions'> <a href='home.php?acao=editar-usuario&id=$idUsuario' class='mx-1 btn btn-success btn-sm'><i class='btn-icon-only fa fa-edit'> </i></a>";
+                echo "<td class='td-actions text-left'> <a href='home.php?acao=editar-usuario&id=$idUsuario' class='mx-1 btn btn-success btn-sm'><i class='btn-icon-only fa fa-edit'> </i></a>";
                 echo "<a href='home.php?acao=ver-usuarios&delete=$idUsuario' class='btn-deluser mx-1 btn btn-danger btn-sm'><i class='btn-icon-only fa fa-eraser'> </i></a></td>";
             } else {
-                echo "<td>Nenhuma</td>";
+                echo "<td class='text-left'>Nenhuma</td>";
             }
             echo "</tr>";
         }

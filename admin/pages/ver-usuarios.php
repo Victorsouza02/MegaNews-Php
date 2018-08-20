@@ -32,7 +32,6 @@ if (!(NIVELACESSO >= 2)) {
                         <th> # </th>
                         <th> Nome </th>
                         <th> Login</th>
-                        <th> Senha</th>
                         <th> Foto </th>
                         <th> Grupo</th>
                         <th class="text-left"> Ações </th>

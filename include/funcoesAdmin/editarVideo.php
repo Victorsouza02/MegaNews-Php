@@ -2,7 +2,7 @@
 
 if (isset($_POST['editvideo'])) {
     $titulo = $_POST['titulo'];
-    $url = $_POST['url'];
+    $url = str_replace("watch?v=", "embed/",  $_POST['url']);
     $id = $_POST['idvideo'];
 
     // VERIFICAÇÃO
