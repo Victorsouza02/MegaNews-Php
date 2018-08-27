@@ -46,7 +46,7 @@ foreach ($posts as $key => $value) {
         <div class="col-md-8 col-sm-12">
             <div class="row" id="titulo">
                 <div class="col-md-12 text-center">
-                    <h3 class="h3-responsive">' . $titulo . '</h3>
+                    <h3 class="h3-responsive"><a href="index.php?post=' . $idpost . '#postagem"  >' . $titulo . '</a></h3>
                 </div>
             </div>
             <hr class="my-1">

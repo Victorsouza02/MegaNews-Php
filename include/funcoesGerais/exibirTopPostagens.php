@@ -12,7 +12,7 @@ foreach ($maisacessadas as $key => $value) {
                 <img src="'.$caminho_foto.$foto.'" class="w-100"/>
             </div>
             <div class="col-md-8">
-                <p>'.$titulo.'</p>
+                <a href="index.php?post=' . $idpost . '#postagem" style="color: #000; text-decoration: none;"><p>'.$titulo.'</p></a>
             </div>
         </div>';
 }
